@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'init-style/wave';
+@import 'init-style/bootstrap.scss';
+@import 'init-style/clockpicker.scss';
+@import "@angular/material/prebuilt-themes/indigo-pink.scss";
+body{
+  background-color: #EEEEEE;
+}
+
+$break-large: 1200px;
+
+.container1 {
+  width: 90%;
+  margin: 0 auto;
+}
+.col-xxl-4,.col-xm-6{
+  position: relative;
+width: 100%;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+}
+@media (min-width: 1500px){
+  .col-xxl-4{
+    flex: 0 0 33.33333333%!important;
+    max-width: 33.33333333%!important;
+  }
+}
+@media (min-width: 1050px){
+  .col-xm-6{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (min-width: $break-large){
+.container1 {
+  max-width: 90%;
+}
+}
+.view {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+@media (min-width: 1200px){
+.h2-responsive h2 {
+    font-size: 200%;
+}}
+@media (min-width: 992px){
+.h2-responsive h2 {
+    font-size: 170%;
+}}
+@media (min-width: 768px){
+.h2-responsive h2 {
+    font-size: 170%;
+}}
+@media (min-width: 576px){
+.h2-responsive h2 {
+    font-size: 140%;
+}}
+.h2-responsive h2 {
+    font-size: 145%;
+}
+.blue-gradient {
+    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+}
+.card.card-cascade .view.gradient-card-header {
+    padding: 1rem;
+    text-align: center;
+}
+.card .card-cascade .view {
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.15), 0 3px 12px 0 rgba(0,0,0,.15);
+}
