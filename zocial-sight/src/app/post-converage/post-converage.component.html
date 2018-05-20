@@ -1,0 +1,41 @@
+<section>
+
+  <div class="card card-cascade narrower">
+
+    <section>
+
+      <div class="row">
+
+        <div class="col-xl-12 col-lg-12 mr-0">
+
+          <div class="view gradient-card-header blue-gradient">
+
+            <h2 class="h2-responsive mb-0">Sales</h2>
+          </div>
+
+          <div class="card-body pb-0">
+
+            <div class="row card-body pt-3">
+
+              <div class="col-md-6 text-center post-num">
+              <div>facebook<span> 45k </span>Posts</div>
+                <div>twitter<span> 45k </span>Tweets</div>
+                <div>pantip<span> 45k </span>Posts</div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="view gradient-card-header white" style="height:170px;">
+                  <canvas  style="width: 212px; height: 256px"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </div>
+</section>
