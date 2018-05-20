@@ -1,0 +1,42 @@
+$men: #1592E6;
+$women: #EA4036;
+.h2-responsive {
+  color: white;
+}
+
+.card{
+  height: 250px;
+}
+.gender-card{
+  margin-top: 20px;
+}
+.icon {
+  margin-bottom: 10px;
+  height: auto;
+  margin-left: 70%;
+  img{
+  width: 30px;
+}
+  &:first-child img{
+    width: 40px;
+margin-left: -8%;
+  }
+
+}
+
+.gender-count {
+  position: relative;
+  font-weight: 500;
+  margin-left: -10px;
+  &:first-child{
+    color: $men;
+  }
+  &:last-child{
+    color: $women;
+  }
+  span{
+    position: absolute;
+top: 20px;
+left: 0px;
+  }
+}
