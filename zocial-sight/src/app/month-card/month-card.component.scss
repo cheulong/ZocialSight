@@ -1,0 +1,42 @@
+#like-count{
+  margin-right:5.5rem!important;
+}
+
+.card-body{
+  font-weight: bold;
+  font-size: 1.2rem;
+  small{
+    font-weight: bold;
+
+  }
+}
+.progress{
+  width: 60%;
+  height: 5px;
+  margin: 00 auto;
+  .progress-bar{
+    width: 25%;
+    background-color: #4285F4;
+  }
+}
+.fb-card{
+  background: #3C5A99;
+}
+.twitter-card{
+  background-color: #34BDF0;
+}
+.pantip-card{
+  background-color: #512880;
+}
+.sub-title{
+  font-size: 0.8rem;
+  font-style: normal;
+}
+.logo{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+.card-body2{
+  text-align: center;
+}
