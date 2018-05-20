@@ -1,0 +1,77 @@
+<section class="my-5">
+
+  <div class="card card-cascade narrower">
+
+    <section>
+
+      <div class="row">
+
+        <div class="col-xl-5 col-lg-12 mr-0">
+
+          <div class="view gradient-card-header blue-gradient">
+
+            <h2 class="h2-responsive mb-0">Sales</h2>
+          </div>
+
+          <div class="card-body pb-0">
+
+            <div class="row card-body pt-3">
+
+              <div class="col-md-12">
+                <p class="lead"><span class="badge info-color p-3">Data range</span></p>
+
+
+                <mat-form-field>
+                  <mat-select placeholder="Favorite food">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
+
+
+                <div class="md-form">
+                  <label class="active">From</label>
+                  <mat-form-field>
+
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="md-form">
+                  <label class="active">To</label>
+                  <mat-form-field>
+
+                    <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-7 col-lg-12 mt-5">
+
+          <div class="view gradient-card-header white">
+            <canvas
+                  baseChart
+                  [chartType]="'line'"
+                  [datasets]="chartData"
+                  [labels]="chartLabels"
+                  [options]="chartOptions"
+                  [legend]="true"
+                  (chartClick)="onChartClick($event)">
+              </canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
