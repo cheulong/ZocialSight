@@ -1,0 +1,48 @@
+$fb-color: #3C5A99;
+$twitter-color: #34BDF0;
+$pantip-color: #512880;
+
+mat-form-field {
+  width: 100%;
+}
+
+.h2-responsive {
+  color: white;
+}
+
+.post-num {
+  width: 100%;
+  height: 50px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+
+.card-body {
+  position: relative;
+  height: 200px;
+}
+
+canvas {
+  position: absolute;
+  left: -40px;
+  top: -40px;
+}
+
+.post-num div {
+  text-align: left;
+  font-size: 18px;
+  span{
+    font-size: 30px;
+  }
+  &:first-child {
+    color: $fb-color;
+  }
+
+  &:nth-child(2) {
+    color: $twitter-color;
+  }
+
+  &:last-child {
+    color: $pantip-color;
+  }
+}
