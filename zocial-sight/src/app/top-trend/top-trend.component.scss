@@ -19,6 +19,8 @@ mat-form-field {
 
 .card-body {
   position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
   height: 200px;
 }
 
@@ -45,4 +47,7 @@ canvas {
   &:last-child {
     color: $pantip-color;
   }
+}
+word-cloud{
+  z-index: 100;
 }

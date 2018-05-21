@@ -1,6 +1,6 @@
 <section>
 
-  <div class="card card-cascade narrower">
+  <div class=" normal-card card card-cascade narrower">
 
     <section>
 
@@ -15,21 +15,12 @@
 
           <div class="card-body pb-0">
 
-            <div class="row card-body pt-3">
+            <div class="row card-body ">
+
+              <word-cloud [wordData]="data"></word-cloud>
 
 
 
-              <div class="col-md-6">
-                <div class="view gradient-card-header white" style="height:170px;">
-                  <canvas  style="width: 212px; height: 256px"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
-                  </canvas>
-                </div>
-              </div>
-              <div class="col-md-6 text-center post-num">
-              <div>Positive<span> 45 </span>%</div>
-                <div>Negative<span> 45 </span>%</div>
-                <div>Neutral<span> 45 </span>%</div>
-              </div>
             </div>
 
           </div>

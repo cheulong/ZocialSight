@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { TopTrendComponent } from './top-trend/top-trend.component';
 import { SentimentComponent } from './sentiment/sentiment.component';
 import { GenderComponent } from './gender/gender.component';
 import { GeoDistributionComponent } from './geo-distribution/geo-distribution.component';
+import { TagCloudModule } from 'angular-tag-cloud-module';
+import { WordCloudComponent } from './word-cloud/word-cloud.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { GeoDistributionComponent } from './geo-distribution/geo-distribution.co
     TopTrendComponent,
     SentimentComponent,
     GenderComponent,
-    GeoDistributionComponent
+    GeoDistributionComponent,
+    WordCloudComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { GeoDistributionComponent } from './geo-distribution/geo-distribution.co
     BrowserAnimationsModule,
     MaterialModule,
     ChartsModule,
+    HttpClientModule,
+    TagCloudModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
