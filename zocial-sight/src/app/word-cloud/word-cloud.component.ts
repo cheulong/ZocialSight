@@ -80,15 +80,14 @@ data=[];
     this.width = 500;
     this.height = this.width * 0.5 ;
 
-    let minFontSize: number = (this.wordData.settings.minFontSize == null) ? 18 : this.wordData.settings.minFontSize;
-    let maxFontSize: number = (this.wordData.settings.maxFontSize == null) ? 96 : this.wordData.settings.maxFontSize;
+
     this.fillScale = D3.scaleOrdinal(D3.schemeCategory10);
     this.scale=D3.scaleLinear()
     .domain([D3.min(this.data,(d)=>d.size),D3.max(this.data,(d)=>d.size)])
     .range([5, 20]);
-    this.scaleWeight=D3.scaleLinear()
-    .domain([D3.min(this.data,(d)=>d.size),D3.max(this.data,(d)=>d.size)])
-    .range(parseInt([100, 500]));
+    this.scaleWeight=D3.scaleQuantize()
+    .domain([5,20])
+    .range([100,300,500,700, 900]);
   }
 
   private buildSVG() {
@@ -106,7 +105,7 @@ data=[];
   }
 
   private populate() {
-    let fontFace: string = ('Impact' == null) ? 'Roboto' : 'Impact';
+    let fontFace: string = ('Impact' == null) ? 'Arial' : 'Impact';
     let fontWeight: string = (this.wordData.settings.fontWeight == null) ? 'normal' : this.wordData.settings.fontWeight;
     let spiralType: string = (this.wordData.settings.spiral == null) ? 'archimedean' : this.wordData.settings.spiral;
 
@@ -124,13 +123,13 @@ data=[];
   }
 
   private drawWordCloud(words) {
-
+console.log(words);
      this.svg
          .selectAll('text')
          .data(words)
          .enter()
          .append('text')
-         .style('font-weight',d =>d.size*50)
+         .style('font-weight',d =>this.scaleWeight(d.size))
          .style('font-size', d => d.size + 'px')
          .style('fill', (d, i) => {
            return this.fillScale(i);
