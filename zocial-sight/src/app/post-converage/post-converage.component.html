@@ -17,14 +17,23 @@
 
             <div class="row card-body pt-3">
 
-              <div class="col-md-6 text-center post-num">
-              <div>facebook<span> 45k </span>Posts</div>
-                <div>twitter<span> 45k </span>Tweets</div>
-                <div>pantip<span> 45k </span>Posts</div>
+              <div class="col-md-5 text-center post-num">
+
+                <div style="float:left;">
+              <div>facebook<br><span> 45k </span></div>
+                <div>twitter<br><span> 45k </span></div>
+                <div>pantip<br><span> 45k </span></div>
+              </div>
+              <div class="right">
+                <div><span>Posts</span></div>
+                  <div><span>Tweets</span></div>
+                <div>  <span>Posts</span></div>
+
+              </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="view gradient-card-header white" style="height:170px;">
+              <div class="col-md-7">
+                <div class="view gradient-card-header white" style="height:170px;width:170px;">
                   <canvas  style="width: 212px; height: 256px"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
                   </canvas>
                 </div>

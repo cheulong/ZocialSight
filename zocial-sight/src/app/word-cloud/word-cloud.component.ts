@@ -77,7 +77,7 @@ data=[];
 
   private setup() {
 
-    this.width = 500;
+    this.width = 400;
     this.height = this.width * 0.5 ;
 
 
@@ -96,8 +96,8 @@ data=[];
                     .attr('width', this.width )
                     .attr('height', this.height)
                     .style('position','absolute')
-                    .style('top',-20)
-                    .style('left',10)
+                    .style('top',5)
+                    .style('left',-20)
                     .append('g')
                     .attr('width', this.width )
                     .attr('height', this.height)

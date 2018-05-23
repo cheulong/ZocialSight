@@ -7,10 +7,11 @@ $women: #EA4036;
   width: 35%!important;
 }
 .card{
-  height: 250px;
+  height: 300px;
 }
 .gender-card{
-  margin-top: 20px;
+  margin-top: 0px;
+  padding: 0px;
 }
 .icon {
   margin-bottom: 10px;
@@ -42,3 +43,11 @@ top: 20px;
 left: 0px;
   }
 }
+table {
+  width: 90%;
+    margin-top: -20px;
+    tr{
+      line-height: 10px;
+    }
+
+  }

@@ -31,10 +31,15 @@ canvas {
 
 .post-num div {
   text-align: left;
-  font-size: 18px;
+  line-height: 20px;
+  font-size: 10px;
   span{
-    font-size: 30px;
+    font-size: 25px;
+    &:last-child{
+      font-size: 15px;
+    }
   }
+
   &:first-child {
     color: $fb-color;
   }
@@ -46,4 +51,12 @@ canvas {
   &:last-child {
     color: $pantip-color;
   }
+}
+
+.right{
+    float: right;
+    margin-top: 20px;
+    div{
+      margin-bottom: 20px;
+    }
 }

@@ -24,18 +24,21 @@ mat-form-field {
 
 canvas {
   position: absolute;
-  left: -40px;
+  left: -50px;
   top: -40px;
 }
 
 .post-num div {
   text-align: left;
-  font-size: 18px;
+  font-size: 15px;
   span{
     font-size: 30px;
   }
   &:first-child {
     color: $fb-color;
+    span{
+      margin-left: 5px;
+    }
   }
 
   &:nth-child(2) {
@@ -44,5 +47,11 @@ canvas {
 
   &:last-child {
     color: $pantip-color;
+    span{
+      margin-left: 12px;
+    }
   }
+}
+.row{
+  padding: 0;
 }
