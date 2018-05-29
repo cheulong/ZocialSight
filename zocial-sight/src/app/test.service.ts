@@ -14,4 +14,9 @@ export class TestService {
         return this.http.get(apiUrl);
 
      }
+
+     getFBData(){
+       let URL='http://127.0.0.1:5000/post';
+       return this.http.get(URL);
+     }
   }
