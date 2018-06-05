@@ -10,7 +10,8 @@ import {MatTableModule,MatDatepickerModule,MatNativeDateModule,MatToolbarModule,
     MatToolbarModule,
     MatInputModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -19,7 +20,8 @@ import {MatTableModule,MatDatepickerModule,MatNativeDateModule,MatToolbarModule,
     MatToolbarModule,
     MatInputModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    
   ],
   providers: [
     MatDatepickerModule

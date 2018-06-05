@@ -19,25 +19,32 @@ export class AnalysisResultComponent implements OnInit {
 };
 
 chartData = [
-  { data: [0, 0, 0, 0,2,2], label: 'Facebook' }
+  //{ data: [0, 0, 0, 0,2,2], label: 'Facebook' }
   // { data: [120, 455, 100, 340], label: 'Account B' },
   // { data: [45, 67, 800, 500], label: 'Account C' }
 ];
-
-chartLabels = ['26','26','27', '28', '29', '30'];
+tempData=[];
+data=[];
+tempLabel=[];
+chartLabels = [];
   constructor(private testService:TestService) {
 
   }
 
   ngOnInit() {
-    this.testService.getFBData()
-    .subscribe(res=>{
-
-      for(let a in res){
-          console.log(res[a].created_time);
-
-      }
-     })
+    // this.testService.getFBData()
+    // .subscribe(res=>{
+    //
+    //   for(let a in res){
+    //
+    //       this.tempLabel.push(res[a].created_time.slice(5,10));
+    //       this.tempData.push(res[a].comments.length);
+    //       this.data=this.tempData;
+    //       this.chartLabels=this.tempLabel;
+    //   }
+    //   this.chartLabels.reverse();
+    //   this.chartData.push({data:this.data.reverse(),label: 'Facebook'});
+    //  })
   }
   onChartClick(event) {
       console.log(event);

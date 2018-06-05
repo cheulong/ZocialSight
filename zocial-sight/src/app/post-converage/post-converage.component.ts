@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+import {TestService} from "./../test.service";
 @Component({
   selector: 'app-post-converage',
   templateUrl: './post-converage.component.html',
   styleUrls: ['./post-converage.component.scss']
 })
 export class PostConverageComponent implements OnInit {
+ @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
   chartOptions = {
 
   responsive: false,
@@ -22,9 +25,9 @@ legend: { display: false }
 
 chartData = [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data:[],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                'rgba(60, 90, 153, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
@@ -32,7 +35,7 @@ chartData = [{
                 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'rgba(60, 90, 153,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -43,11 +46,24 @@ chartData = [{
         }];
 
 
-chartLabels = ['January', 'February', 'Mars', 'April'];
-  constructor() { }
+chartLabels = ['Facebook'];
+tempPost:any=0;
+postCover:any;
+  constructor(private testService:TestService) { }
 
   ngOnInit() {
+    // this.testService.getFBData()
+    // .subscribe(res=>{
+    //   for(let a in res){
+    //
+    //     this.tempPost+=1;
+    //     this.postCover=this.tempPost;
+    //   }
+    //   this.chartData[0].data.push(this.postCover);
+    //   this.chart.chart.update();
+    //  })
   }
+
   onChartClick(event) {
       console.log(event);
     }

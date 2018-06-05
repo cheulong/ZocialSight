@@ -5,6 +5,13 @@
       <div  class="card classic-admin-card fb-card white-text">
         <div  class="card-body ">
           <div  class="pull-right" id="like-count">
+            <mat-form-field>
+              <mat-select  [(value)]="selected"  >
+                <mat-option *ngFor="let food of foods" [value]="food.value" (click)="someMethod($event.target.textContent)">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
             <div >{{likeNum}} <small class="ml-5">Likes</small></div>
             <div>{{commentNum}} <small class="ml-5">Comments</small></div>
             <div>{{shareNum}} <small class="ml-5">Shares</small></div>
@@ -20,6 +27,13 @@
       <div  class="card classic-admin-card twitter-card white-text">
         <div  class="card-body ">
           <div  class="pull-right" id="like-count">
+            <mat-form-field>
+              <mat-select  [(value)]="selected2">
+                <mat-option *ngFor="let food2 of foods2" [value]="food2.value">
+                  {{ food2.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
             <div >1231 <small class="ml-5">Followers</small></div>
             <div>1000 <small class="ml-5">Comments</small></div>
             <div>1012 <small class="ml-5">Retweets</small></div>
@@ -35,6 +49,13 @@
       <div  class="card classic-admin-card pantip-card white-text">
         <div  class="card-body ">
           <div  class="pull-right mt-2" id="like-count">
+            <mat-form-field>
+              <mat-select  [(value)]="selected3">
+                <mat-option *ngFor="let food3 of foods3" [value]="food3.value">
+                  {{ food3.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
             <div >1231 <small class="ml-5">Likes</small></div>
             <div>1000 <small class="ml-5">Comments</small></div>
 

@@ -18,6 +18,7 @@ import { GenderComponent } from './gender/gender.component';
 import { GeoDistributionComponent } from './geo-distribution/geo-distribution.component';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
+import {DatePipe} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { WordCloudComponent } from './word-cloud/word-cloud.component';
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
