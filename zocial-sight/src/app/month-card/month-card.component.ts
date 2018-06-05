@@ -21,12 +21,12 @@ public now: Date = new Date();
      { value: '7days', viewValue: '7days' },
      { value: '30days', viewValue: '30days' }
    ];
-   // foods2 = [
-   //   { value: '1days', viewValue: '1days' },
-   //   { value: '3days123', viewValue: '3dayswerw' },
-   //   { value: '7days', viewValue: '7days' },
-   //   { value: '30days', viewValue: '30days' }
-   // ];
+   foods2 = [
+     { value: '1day', viewValue: '1day' },
+     { value: '3days', viewValue: '3days' },
+     { value: '7days', viewValue: '7days' },
+     { value: '30days', viewValue: '30days' }
+   ];
    // foods3 = [
    //   { value: '1days', viewValue: '1days' },
    //   { value: '3daysdsd', viewValue: '3dayssfdss' },
@@ -34,7 +34,7 @@ public now: Date = new Date();
    //   { value: '30days', viewValue: '30days' }
    // ];
    selected = '1day';
-// selected2= '1days';
+   selected2= '1day';
 // selected3 = '1days';
   constructor(private testService:TestService) {
 
@@ -43,7 +43,7 @@ public now: Date = new Date();
 
   ngOnInit() {
     this.someMethod(' 1day ');
-
+    this.changeTwDate(' 1day ');
   }
   someMethod(value){
     let now: Date = new Date();
@@ -59,5 +59,19 @@ public now: Date = new Date();
               this.shareNum+=res[a].engagement[6].Share;
           }
          })
-         
+
+  }
+  changeTwDate(value){
+    this.testService.getTWData(value)
+    .subscribe(res=>{
+      console.log(res);
+      this.favoriteNum=0;
+      this.retweetNum=0;
+      for(let a in res){
+          this.favoriteNum+=res[a].favorite_count;
+          this.retweetNum+=res[a].retweet_count;
+
+      }
+     })
+  }
 }

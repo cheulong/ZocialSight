@@ -28,15 +28,15 @@
         <div  class="card-body ">
           <div  class="pull-right" id="like-count">
             <mat-form-field>
-              <mat-select  [(value)]="selected2">
-                <mat-option *ngFor="let food2 of foods2" [value]="food2.value">
+              <mat-select  [(value)]="selected2" >
+                <mat-option *ngFor="let food2 of foods2" [value]="food2.value" (click)="changeTwDate($event.target.textContent)">
                   {{ food2.viewValue }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <div >1231 <small class="ml-5">Followers</small></div>
+            <div >{{favoriteNum}} <small class="ml-5">Favorites</small></div>
             <div>1000 <small class="ml-5">Comments</small></div>
-            <div>1012 <small class="ml-5">Retweets</small></div>
+            <div>{{retweetNum}} <small class="ml-5">Retweets</small></div>
           </div>
           <div class="logo">
           <logo><img src="http://www.macdrifter.com/theme/images/twitter-snow.svg" style="width:70px;height:70px;" alt=""></logo>

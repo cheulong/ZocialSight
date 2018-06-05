@@ -32,7 +32,7 @@ chartLabels = [];
   }
 
   ngOnInit() {
-    // this.testService.getFBData()
+    // this.testService.getFBData('3days')
     // .subscribe(res=>{
     //
     //   for(let a in res){
