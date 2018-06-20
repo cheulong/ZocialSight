@@ -22,20 +22,17 @@
 
 
                 <mat-form-field>
-                  <mat-select placeholder="Favorite food" style="color:white;">
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                  <mat-select [(value)]="selected">
+                    <mat-option *ngFor="let food of foods" [value]="food.value" (click)="someMethod($event.target.textContent)">
                       {{ food.viewValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
-
-
+                <!-- <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
                 <div class="md-form">
                   <label class="active">From</label>
                   <mat-form-field>
-
                     <input matInput [matDatepicker]="picker" placeholder="Choose a date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -44,12 +41,11 @@
                 <div class="md-form">
                   <label class="active">To</label>
                   <mat-form-field>
-
                     <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
                   </mat-form-field>
-                </div>
+                </div> -->
               </div>
 
 
@@ -60,14 +56,7 @@
         <div class=" col-md-8 mt-5">
 
           <div class="view gradient-card-header white">
-            <canvas
-                  baseChart
-                  [chartType]="'line'"
-                  [datasets]="chartData"
-                  [labels]="chartLabels"
-                  [options]="chartOptions"
-                  [legend]="true"
-                  (chartClick)="onChartClick($event)">
+            <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
               </canvas>
           </div>
         </div>

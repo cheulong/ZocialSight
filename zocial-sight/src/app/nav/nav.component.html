@@ -1,7 +1,7 @@
 
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo justify-content-between">
-  
+
     <!-- Navbar brand -->
     <logo><a class="navbar-brand" href="#">ZocialSight</a></logo>
 
@@ -10,19 +10,22 @@
 
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link waves-light" mdbWavesEffect>Alert<span class="sr-only">(current)</span></a>
+            <li *ngIf="isLoggedIn()" class="nav-item"  (click)="refresh()">
+                <a class="nav-link waves-light" [ngClass]="{'loading': loading}" mdbWavesEffect><img src="http://simpleicon.com/wp-content/uploads/refresh.svg" alt=""></a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect>Account</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect>Setting</a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <li *ngIf="isLoggedIn()" class="nav-item" (click)="logout()">
                 <a class="nav-link waves-light" mdbWavesEffect>Logout</a>
             </li>
-            <!-- Dropdown -->
+            <li *ngIf="!isLoggedIn()" class="nav-item" (click)="register()">
+                <a class="nav-link waves-light" mdbWavesEffect>Sign Up</a>
+            </li>
+
 
 
         </ul>

@@ -1,73 +1,71 @@
-<section  class="mt-lg-5">
-  <div  class="container1 ">
+<section class="mt-lg-5">
+  <div class="container1 ">
     <div class="row">
-    <div  class="col-xl-4 col-md-6 my-3">
-      <div  class="card classic-admin-card fb-card white-text">
-        <div  class="card-body ">
-          <div  class="pull-right" id="like-count">
-            <mat-form-field>
-              <mat-select  [(value)]="selected"  >
-                <mat-option *ngFor="let food of foods" [value]="food.value" (click)="someMethod($event.target.textContent)">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div >{{likeNum}} <small class="ml-5">Likes</small></div>
-            <div>{{commentNum}} <small class="ml-5">Comments</small></div>
-            <div>{{shareNum}} <small class="ml-5">Shares</small></div>
-          </div>
-          <div class="logo">
-          <logo class="pr-2"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" style="width:70px;height:70px;" alt=""></logo>
-          <p class="sub-title">FACEBOOK</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div  class="col-xl-4  col-md-6 my-3">
-      <div  class="card classic-admin-card twitter-card white-text">
-        <div  class="card-body ">
-          <div  class="pull-right" id="like-count">
-            <mat-form-field>
-              <mat-select  [(value)]="selected2" >
-                <mat-option *ngFor="let food2 of foods2" [value]="food2.value" (click)="changeTwDate($event.target.textContent)">
-                  {{ food2.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div >{{favoriteNum}} <small class="ml-5">Favorites</small></div>
-            <div>1000 <small class="ml-5">Comments</small></div>
-            <div>{{retweetNum}} <small class="ml-5">Retweets</small></div>
-          </div>
-          <div class="logo">
-          <logo><img src="http://www.macdrifter.com/theme/images/twitter-snow.svg" style="width:70px;height:70px;" alt=""></logo>
-          <p class="sub-title">TWITTER</p>
+      <div class="col-xl-4 col-md-6 my-3">
+        <div class="card classic-admin-card fb-card white-text">
+          <div class="card-body ">
+            <div class="pull-right" id="like-count">
+              <mat-form-field>
+                <mat-select [(value)]="selected">
+                  <mat-option *ngFor="let food of foods" [value]="food.value" (click)="someMethod($event.target.textContent)">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>{{likeNum}} <small class="ml-5">Likes</small></div>
+              <div>{{commentNum}} <small class="ml-5">Comments</small></div>
+              <div>{{shareNum}} <small class="ml-5">Shares</small></div>
+            </div>
+            <div class="logo">
+              <logo class="pr-2"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" style="width:70px;height:70px;" alt=""></logo>
+              <p class="sub-title">FACEBOOK</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div  class="col-xl-4  col-md-6 my-3">
-      <div  class="card classic-admin-card pantip-card white-text">
-        <div  class="card-body ">
-          <div  class="pull-right mt-2" id="like-count">
-            <mat-form-field>
-              <mat-select  [(value)]="selected3">
-                <mat-option *ngFor="let food3 of foods3" [value]="food3.value">
-                  {{ food3.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div >1231 <small class="ml-5">Likes</small></div>
-            <div>1000 <small class="ml-5">Comments</small></div>
-
-          </div>
-          <div class="logo">
-          <logo><img src="https://upload.wikimedia.org/wikipedia/th/c/c5/Pantip_Logo.png" style="width:110px;height:70px;" alt=""></logo>
-          <p class="sub-title">PANTIP</p>
+      <div class="col-xl-4  col-md-6 my-3">
+        <div class="card classic-admin-card twitter-card white-text">
+          <div class="card-body ">
+            <div class="pull-right" id="like-count">
+              <mat-form-field>
+                <mat-select [(value)]="selected2">
+                  <mat-option *ngFor="let food2 of foods2" [value]="food2.value" (click)="changeTwDate($event.target.textContent)">
+                    {{ food2.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>{{favoriteNum}} <small class="ml-5">Favorites</small></div>
+              <!-- <div>1000 <small class="ml-5">Comments</small></div> -->
+              <div>{{retweetNum}} <small class="ml-5">Retweets</small></div>
+            </div>
+            <div class="logo">
+              <logo><img src="http://www.macdrifter.com/theme/images/twitter-snow.svg" style="width:70px;height:70px;" alt=""></logo>
+              <p class="sub-title">TWITTER</p>
+            </div>
           </div>
         </div>
-
       </div>
+      <!-- <div class="col-xl-4  col-md-6 my-3">
+        <div class="card classic-admin-card pantip-card white-text">
+          <div class="card-body ">
+            <div class="pull-right mt-2" id="like-count">
+              <mat-form-field>
+                <mat-select [(value)]="selected3">
+                  <mat-option *ngFor="let food3 of foods3" [value]="food3.value">
+                    {{ food3.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>1231 <small class="ml-5">Likes</small></div>
+              <div>1000 <small class="ml-5">Comments</small></div>
+            </div>
+            <div class="logo">
+              <logo><img src="https://upload.wikimedia.org/wikipedia/th/c/c5/Pantip_Logo.png" style="width:110px;height:70px;" alt=""></logo>
+              <p class="sub-title">PANTIP</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
-</div>
   </div>
 </section>

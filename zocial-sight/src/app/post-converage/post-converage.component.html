@@ -18,11 +18,17 @@
             <div class="row card-body pt-3">
 
               <div class="col-md-5 text-center post-num">
-
+                <mat-form-field>
+                  <mat-select  [(value)]="selected" >
+                    <mat-option *ngFor="let food of foods" [value]="food.value" (click)="someMethod($event.target.textContent)">
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
                 <div style="float:left;">
-              <div>facebook<br><span> {{postCover}} </span></div>
-                <div>twitter<br><span> 45k </span></div>
-                <div>pantip<br><span> 45k </span></div>
+              <div>facebook<br><span> {{facebook}} </span></div>
+                <div>twitter<br><span> {{twitter}} </span></div>
+                <div>pantip<br><span> {{pantip}} </span></div>
               </div>
               <div class="right">
                 <div><span>Posts</span></div>

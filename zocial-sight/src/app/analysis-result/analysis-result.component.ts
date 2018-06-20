@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {TestService} from "./../test.service";
-
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 @Component({
   selector: 'app-analysis-result',
   templateUrl: './analysis-result.component.html',
   styleUrls: ['./analysis-result.component.scss']
 })
 export class AnalysisResultComponent implements OnInit {
-
+ @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
+    { value: '1day', viewValue: '1day' },
+    { value: '3days', viewValue: '3days' },
+    { value: '7days', viewValue: '7days' },
+    { value: '30days', viewValue: '30days' }
   ];
+     selected = '7days';
   chartOptions = {
   responsive: true
 };
@@ -32,21 +34,29 @@ chartLabels = [];
   }
 
   ngOnInit() {
-    // this.testService.getFBData('3days')
-    // .subscribe(res=>{
-    //
-    //   for(let a in res){
-    //
-    //       this.tempLabel.push(res[a].created_time.slice(5,10));
-    //       this.tempData.push(res[a].comments.length);
-    //       this.data=this.tempData;
-    //       this.chartLabels=this.tempLabel;
-    //   }
-    //   this.chartLabels.reverse();
-    //   this.chartData.push({data:this.data.reverse(),label: 'Facebook'});
-    //  })
+    this.someMethod(' 7days ');
   }
-  onChartClick(event) {
-      console.log(event);
+  someMethod(value){
+    this.chartData = [];
+    this.tempData=[];
+    this.tempLabel=[];
+    this.data=[];
+    this.chartLabels=[];
+      this.testService.getFBData(value)
+      .subscribe(res=>{
+        if(res.length>0){
+        for(let a in res){
+            this.tempLabel.push(res[a].created_time.slice(5,10));
+            this.tempData.push(res[a].comments.length);
+            this.data=this.tempData;
+            this.chartLabels=this.tempLabel;
+        }}else{
+          this.data=[];
+          this.chartLabels=[];
+        }
+        this.chartLabels.reverse();
+        this.chartData.push({data:this.data.reverse(),label: 'Facebook'});
+        this.chart.chart.update();
     }
   }
+}

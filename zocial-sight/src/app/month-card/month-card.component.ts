@@ -33,8 +33,8 @@ public now: Date = new Date();
    //   { value: '7days', viewValue: '7days' },
    //   { value: '30days', viewValue: '30days' }
    // ];
-   selected = '1day';
-   selected2= '1day';
+   selected = '7days';
+   selected2= '7days';
 // selected3 = '1days';
   constructor(private testService:TestService) {
 
@@ -42,8 +42,8 @@ public now: Date = new Date();
   }
 
   ngOnInit() {
-    this.someMethod(' 1day ');
-    this.changeTwDate(' 1day ');
+    this.someMethod(' 7days ');
+    this.changeTwDate(' 7days ');
   }
   someMethod(value){
     let now: Date = new Date();

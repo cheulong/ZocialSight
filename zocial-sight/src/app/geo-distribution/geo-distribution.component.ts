@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
+import {TestService} from "./../test.service";
 import * as D3 from 'd3';
 declare let d3: any;
 @Component({
@@ -20,19 +21,27 @@ export class GeoDistributionComponent implements OnInit {
    populations=[];
    color:any;
    provinces:any=[];
-
-
+   temp=[];
+   datas=[];
+   max:number;
 dataSource:any;
-
-
-  constructor() {
+foods = [
+  { value: '1day', viewValue: '1day' },
+  { value: '3days', viewValue: '3days' },
+  { value: '7days', viewValue: '7days' },
+  { value: '30days', viewValue: '30days' }
+];
+   selected = '30days';
+index=0;
+provinces1=[];
+  constructor(private testService:TestService) {
 
 
   }
 
   ngOnInit() {
+this.getLocation(' 30days ');
 
-this.init();
   }
 
 init(){
@@ -53,17 +62,24 @@ init(){
 
       d3.tsv("./../../assets/c.tsv", (d)=> {
           this.populations=d;
-//console.log(  this.populations);
+
 for(let a of this.populations){
-//  console.log(a);
+  a.Population=this.datas[this.index].num;
+  if(this.datas[this.index].num!=0&&this.provinces1.length<5){
+    this.provinces1.push(this.datas[this.index]);
+  }
+  this.index++;
+
 this.provinces.push(a.Province);
 }
+this.provinces1.sort(function(obj1, obj2) {
+	// Ascending: first age less than the previous
+	return obj2.num -  obj1.num ;
+});
+
 });
 
 
-       let x = D3.scaleLinear()
-           .domain([1, 10])
-           .rangeRound([600, 860]);
 
    //
    //     this.g = this.svg.append("g")
@@ -112,11 +128,12 @@ this.provinces.push(a.Province);
         .style("fill",  (d, i) => {
         //  console.log(this.populations);
 
-        let max=D3.max(this.populations,(d)=>parseInt(d.Population));
-          return this.color(Math.ceil(parseInt(this.populations[this.provinces.indexOf(d.properties.name)].Population)*9/max));
+         this.max=D3.max(this.populations,(d)=>parseInt(d.Population));
+
+          return this.color(Math.ceil(parseInt(this.populations[this.provinces.indexOf(d.properties.name)].Population)*9/this.max));
         })
         .append("title").text((d,i) =>
-          d.properties.name+Math.ceil(parseInt(this.populations[this.provinces.indexOf(d.properties.name)].Population)*9/5701394)
+          d.properties.name+" "+Math.ceil(parseInt(this.datas[this.provinces.indexOf(d.properties.name)].num))
         );
         // .on("mouseover", (d)=> {
         //   this.mouseover(d);
@@ -184,4 +201,13 @@ this.provinces.push(a.Province);
   //     .attr('transform', 'translate(' + this.width / 2 + ',' + this.height / 2 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')');
   //
   // }
+  getLocation(date){
+  this.testService.getLocation(date)
+  .subscribe(res=>{
+    this.temp=res;
+    this.datas=this.temp;
+
+    this.init();
+   })
+}
 }

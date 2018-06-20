@@ -8,7 +8,13 @@ import {TestService} from "./../test.service";
 })
 export class PostConverageComponent implements OnInit {
  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
-
+ foods = [
+   { value: '1day', viewValue: '1day' },
+   { value: '3days', viewValue: '3days' },
+   { value: '7days', viewValue: '7days' },
+   { value: '30days', viewValue: '30days' }
+ ];
+    selected = '7days';
   chartOptions = {
 
   responsive: false,
@@ -23,9 +29,10 @@ export class PostConverageComponent implements OnInit {
 legend: { display: false }
 };
 
-chartData = [{
-            label: '# of Votes',
-            data:[],
+chartData = [
+   {
+             label: '# of Votes',
+             data:[,],
             backgroundColor: [
                 'rgba(60, 90, 153, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -42,27 +49,41 @@ chartData = [{
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
-        }];
+             borderWidth: 1
+         }
+      ];
 
 
-chartLabels = ['Facebook'];
+chartLabels = ['Facebook','Twitter','Pantip'];
 tempPost:any=0;
-postCover:any;
+facebook:any;
+twitter:any;
+pantip:any;
   constructor(private testService:TestService) { }
 
   ngOnInit() {
-    // this.testService.getFBData()
-    // .subscribe(res=>{
-    //   for(let a in res){
-    //
-    //     this.tempPost+=1;
-    //     this.postCover=this.tempPost;
-    //   }
-    //   this.chartData[0].data.push(this.postCover);
-    //   this.chart.chart.update();
-    //  })
+    this.someMethod(' 7days ')
   }
+
+someMethod(date){
+
+  this.testService.getFBData(date)
+  .subscribe(res=>{
+    this.facebook=res.length;
+    this.chartData[0].data[0]=res.length;
+   })
+   this.testService.getTWData(date)
+   .subscribe(res=>{
+     this.twitter=res.length;
+     this.chartData[0].data[1]=res.length;
+    })
+    this.testService.getPantip(date)
+    .subscribe(res=>{
+      this.pantip=res.length;
+      this.chartData[0].data[2]=res.length;
+      this.chart.chart.update();
+     })
+}
 
   onChartClick(event) {
       console.log(event);

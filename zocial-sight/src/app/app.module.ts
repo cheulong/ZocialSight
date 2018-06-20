@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,12 @@ import { GeoDistributionComponent } from './geo-distribution/geo-distribution.co
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
 import {DatePipe} from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './register/register.component';
+import { StatusComponent } from './status/status.component';
+import { EnsureAuthenticated } from './services/ensure-authenticated.service';
+import { LoginRedirect } from './services/login-redirect.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,12 +38,16 @@ import {DatePipe} from '@angular/common';
     SentimentComponent,
     GenderComponent,
     GeoDistributionComponent,
-    WordCloudComponent
+    WordCloudComponent,
+    LoginComponent,
+    RegisterComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MaterialModule,
     ChartsModule,
     HttpClientModule,
@@ -44,7 +55,7 @@ import {DatePipe} from '@angular/common';
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [DatePipe],
+  providers: [DatePipe,AuthService,EnsureAuthenticated,LoginRedirect],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

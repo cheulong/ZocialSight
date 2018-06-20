@@ -58,3 +58,15 @@ table {
     }
 
   }
+  .mat-form-field{
+    font-size: 10px;
+  position: absolute;
+  text-align: right;
+  left: 30px;
+  top: 40px;
+  width: 50px;
+  z-index: 100;
+  }
+  span.mat-select-placeholder{
+    color: white!important;
+  }
