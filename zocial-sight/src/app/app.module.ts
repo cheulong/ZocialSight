@@ -26,6 +26,7 @@ import { RegisterComponent } from './register/register.component';
 import { StatusComponent } from './status/status.component';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
+import { CustomFormsModule } from 'ng2-validation'
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { LoginRedirect } from './services/login-redirect.service';
     ChartsModule,
     HttpClientModule,
     TagCloudModule,
+    CustomFormsModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

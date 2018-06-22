@@ -27,4 +27,8 @@ export class AuthService {
   });
   return this.http.get(url, {headers: headers}).toPromise();
 }
+reset(user: User):Promise<any>{
+  let url: string = `${this.BASE_URL}/resetPassword`;
+  return this.http.post(url, user, {headers: this.headers}).toPromise();
+}
 }

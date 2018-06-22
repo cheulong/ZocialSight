@@ -8,9 +8,17 @@ import { User } from '../models/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  test: string = 'just a test';
+  errorMessage: string = ' ';
+  errorMessageInReset:string=' ';
   user: User = new User();
-    constructor(private router: Router,private auth: AuthService) {}
+  isReset=false;
+  isReseted=false;
+  confirmPassword:string='';
+    constructor(private router: Router,private auth: AuthService) {
+      this.user.username='';
+      this.user.password='';
+      this.user.email='';
+    }
     ngOnInit(){}
     onLogin(): void {
 
@@ -19,9 +27,33 @@ export class LoginComponent implements OnInit {
       .then((user) => {
         localStorage.setItem('token', user.access_token);
         this.router.navigateByUrl('/dashboard');
+
       })
       .catch((err) => {
-        console.log(err);
+
+        this.errorMessage=err.error.message;
+
       });
     }
+
+
+
+    resetPassword(){
+      if(this.user.password!==this.confirmPassword){
+        this.errorMessageInReset='The confirm new password and new password is not match, Please try again';
+      }else{
+      this.auth.reset(this.user)
+      .then((user) => {
+        this.user.username='';
+        this.user.password='';
+        this.user.email='';
+          this.isReseted=true;
+          this.errorMessageInReset=user.message;
+      })
+      .catch((err) => {
+        this.errorMessageInReset=err.error.message;
+      });
+      }
+    }
+
 }
