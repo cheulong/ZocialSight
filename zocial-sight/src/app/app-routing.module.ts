@@ -4,11 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { EnsureAuthenticated } from './services/ensure-authenticated.service';
+import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 const routes: Routes = [
   { path: '', component: DashboardComponent,canActivate:
-  [EnsureAuthenticated] },
-  { path: 'dashboard', component: DashboardComponent,canActivate:[EnsureAuthenticated] },
+  [EnsureAuthenticatedService] },
+  { path: 'dashboard', component: DashboardComponent,canActivate:[EnsureAuthenticatedService] },
   { path: 'login', component: LoginComponent }
 ];
 
