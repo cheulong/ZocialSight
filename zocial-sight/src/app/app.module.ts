@@ -24,8 +24,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 
-import { EnsureAuthenticated } from './services/ensure-authenticated.service';
-import { LoginRedirect } from './services/login-redirect.service';
+import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
+import { LoginRedirectService } from './services/login-redirect.service';
 import { CustomFormsModule } from 'ng2-validation';
 import {HttpModule} from '@angular/http';
 @NgModule({
@@ -59,7 +59,7 @@ import {HttpModule} from '@angular/http';
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [DatePipe,AuthService,EnsureAuthenticated,LoginRedirect],
+  providers: [DatePipe,AuthService,EnsureAuthenticatedService,LoginRedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
