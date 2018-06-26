@@ -69,18 +69,18 @@ someMethod(date){
 
   this.testService.getFBData(date)
   .subscribe(res=>{
-    this.facebook=res.length;
-    this.chartData[0].data[0]=res.length;
+    this.facebook=Object.keys(res).length;
+    this.chartData[0].data[0]=Object.keys(res).length;
    })
    this.testService.getTWData(date)
    .subscribe(res=>{
-     this.twitter=res.length;
-     this.chartData[0].data[1]=res.length;
+     this.twitter=Object.keys(res).length;
+     this.chartData[0].data[1]=Object.keys(res).length;
     })
     this.testService.getPantip(date)
     .subscribe(res=>{
-      this.pantip=res.length;
-      this.chartData[0].data[2]=res.length;
+      this.pantip=Object.keys(res).length;
+      this.chartData[0].data[2]=Object.keys(res).length;
       this.chart.chart.update();
      })
 }

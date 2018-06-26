@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { User } from './../models/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,10 +10,17 @@ import { User } from '../models/user';
 export class LoginComponent implements OnInit {
   errorMessage: string = ' ';
   errorMessageInReset:string=' ';
-  user: User = new User();
+  user: User=new User();
   isReset=false;
   isReseted=false;
   confirmPassword:string='';
+  foods = [
+    { value: '1day', viewValue: `How is your first pet's name` },
+    { value: '3days', viewValue: '3days' },
+    { value: '7days', viewValue: '7days' },
+    { value: '30days', viewValue: '30days' }
+  ];
+     selected = '7days';
     constructor(private router: Router,private auth: AuthService) {
       this.user.username='';
       this.user.password='';

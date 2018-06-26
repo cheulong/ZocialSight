@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  result='';
+  result:any;
   private loading:boolean =false;
   constructor(private router: Router,private testService:TestService) { }
 
@@ -21,7 +21,7 @@ refresh(){
       this.result=res;
       this.loading=false;
       console.log(this.loading);
-    }
+    })
   }
 logout(){
   localStorage.removeItem('token');

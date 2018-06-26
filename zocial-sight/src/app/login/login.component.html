@@ -27,7 +27,7 @@
       <form (ngSubmit)="resetPassword()" novalidate>
        <div class="form-group">
          <label for="username">Username</label>
-         <input #field="ngModel" type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username" required [rangeLength]="[4, 20]">
+         <input #field="ngModel" type="text" class="form-control" id="username1" placeholder="enter username" [(ngModel)]="user.username" name="username" required [rangeLength]="[4, 20]">
           <p *ngIf="field.errors?.required&&field.touched">The username field is required</p>
           <p *ngIf="field.errors?.rangeLength">minimum length is 4</p>
        </div>
@@ -39,8 +39,23 @@
 
        </div>
        <div class="form-group">
+       <mat-form-field>
+         <mat-select [(value)]="selected">
+           <mat-option *ngFor="let food of foods" [value]="food.value" (click)="getGender($event.target.textContent)">
+             {{ food.viewValue }}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+     </div>
+     <div class="form-group">
+       <label for="password">Answer</label>
+       <input #fieldPW="ngModel" type="password" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.password" name="password" required [rangeLength]="[4, 20]">
+        <p *ngIf="fieldPW.errors?.required&&fieldPW.touched">The password field is required</p>
+        <p *ngIf="fieldPW.errors?.rangeLength">minimum length is 4</p>
+     </div>
+       <div class="form-group">
          <label for="password">New Password</label>
-         <input #fieldPW="ngModel" type="password" class="form-control" id="newpassword" placeholder="enter password" [(ngModel)]="user.password" name="password" required [rangeLength]="[4, 20]">
+         <input #fieldPW="ngModel" type="password" class="form-control" id="answer" placeholder="enter password" [(ngModel)]="user.password" name="password" required [rangeLength]="[4, 20]">
           <p *ngIf="fieldPW.errors?.required&&fieldPW.touched">The password field is required</p>
           <p *ngIf="fieldPW.errors?.rangeLength">minimum length is 4</p>
        </div>

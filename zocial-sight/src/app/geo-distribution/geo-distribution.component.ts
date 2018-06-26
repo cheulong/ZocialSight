@@ -21,7 +21,7 @@ export class GeoDistributionComponent implements OnInit {
    populations=[];
    color:any;
    provinces:any=[];
-   temp=[];
+   temp:any;
    datas=[];
    max:number;
 dataSource:any;

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { GenderComponent } from './gender.component';
 
 describe('GenderComponent', () => {
@@ -8,7 +8,8 @@ describe('GenderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenderComponent ]
+      declarations: [ GenderComponent ],
+        schemas: [ NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

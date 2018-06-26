@@ -44,7 +44,8 @@ chartLabels = [];
     this.chartLabels=[];
       this.testService.getFBData(value)
       .subscribe(res=>{
-        if(res.length>0){
+
+        if(Object.keys(res).length>0){
         for(let a in res){
             this.tempLabel.push(res[a].created_time.slice(5,10));
             this.tempData.push(res[a].comments.length);
@@ -57,6 +58,6 @@ chartLabels = [];
         this.chartLabels.reverse();
         this.chartData.push({data:this.data.reverse(),label: 'Facebook'});
         this.chart.chart.update();
-    }
+    })
   }
 }

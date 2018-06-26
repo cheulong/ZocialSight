@@ -15,7 +15,7 @@ export class GenderComponent implements OnInit {
      selected = '7days';
      male=0;
      female=0;
-     temp=0;
+     temp:any;
   constructor(private testService:TestService) { }
 
   ngOnInit() {

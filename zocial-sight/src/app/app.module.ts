@@ -23,10 +23,11 @@ import {DatePipe} from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
-import { StatusComponent } from './status/status.component';
+
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+import {HttpModule} from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,17 +42,18 @@ import { CustomFormsModule } from 'ng2-validation'
     GeoDistributionComponent,
     WordCloudComponent,
     LoginComponent,
-    RegisterComponent,
-    StatusComponent
+    RegisterComponent
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
     ChartsModule,
-    HttpClientModule,
+    HttpModule,
     TagCloudModule,
     CustomFormsModule,
     MDBBootstrapModule.forRoot()
