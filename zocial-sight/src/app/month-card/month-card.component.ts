@@ -14,7 +14,7 @@ public now: Date = new Date();
    shareNum=0;
    retweetNum=0;
    favoriteNum=0;
-
+   pantipNum=0;
    foods = [
      { value: '1day', viewValue: '1day' },
      { value: '3days', viewValue: '3days' },
@@ -27,25 +27,26 @@ public now: Date = new Date();
      { value: '7days', viewValue: '7days' },
      { value: '30days', viewValue: '30days' }
    ];
-   // foods3 = [
-   //   { value: '1days', viewValue: '1days' },
-   //   { value: '3daysdsd', viewValue: '3dayssfdss' },
-   //   { value: '7days', viewValue: '7days' },
-   //   { value: '30days', viewValue: '30days' }
-   // ];
+   foods3 = [
+     { value: '1days', viewValue: '1days' },
+     { value: '3days', viewValue: '3days' },
+     { value: '7days', viewValue: '7days' },
+     { value: '30days', viewValue: '30days' }
+   ];
    selected = '7days';
    selected2= '7days';
-// selected3 = '1days';
+   selected3 = '1days';
   constructor(private testService:TestService) {
 
 
   }
 
   ngOnInit() {
-    this.someMethod(' 7days ');
+    this.changeFbDate(' 7days ');
     this.changeTwDate(' 7days ');
+    this.changePantipDate(' 7days ');
   }
-  someMethod(value){
+  changeFbDate(value){
     let now: Date = new Date();
         this.testService.getFBData(value)
         .subscribe(res=>{
@@ -72,6 +73,13 @@ public now: Date = new Date();
           this.retweetNum+=res[a].retweet_count;
 
       }
+     })
+  }
+  changePantipDate(value){
+    this.testService.getPantip(value)
+    .subscribe(res=>{
+      console.log(res);
+      this.pantipNum=Object.keys(res).length;
      })
   }
 }

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 mx-auto">
     <div class="login" [hidden]="isReset">
       <h1>Login</h1>
       <hr><br>
@@ -41,7 +41,7 @@
        <div class="form-group">
        <mat-form-field>
          <mat-select [(value)]="selected">
-           <mat-option *ngFor="let food of foods" [value]="food.value" (click)="getGender($event.target.textContent)">
+           <mat-option *ngFor="let food of foods" [value]="food.value" [(ngModel)]="user.question" (click)="getGender($event.target.textContent)">
              {{ food.viewValue }}
            </mat-option>
          </mat-select>
@@ -49,9 +49,9 @@
      </div>
      <div class="form-group">
        <label for="password">Answer</label>
-       <input #fieldPW="ngModel" type="password" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.password" name="password" required [rangeLength]="[4, 20]">
-        <p *ngIf="fieldPW.errors?.required&&fieldPW.touched">The password field is required</p>
-        <p *ngIf="fieldPW.errors?.rangeLength">minimum length is 4</p>
+       <input #fieldAn="ngModel" type="password" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.answer" name="answer" required [rangeLength]="[4, 20]">
+        <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The password field is required</p>
+        <p *ngIf="fieldAn.errors?.rangeLength">minimum length is 4</p>
      </div>
        <div class="form-group">
          <label for="password">New Password</label>
@@ -66,7 +66,7 @@
           <p *ngIf="fieldconfirmPassword.errors?.rangeLength">minimum length is 4</p>
        </div>
        <p >{{errorMessageInReset}}</p>
-       <button (click)="isReset=!isReset" (click)="isReseted=!isReseted" [hidden]="!isReseted" class="btn btn-default">Login</button>
+       <button (click)="isReset=!isReset" (click)="isReseted=!isReseted"  class="btn btn-default">Login</button>
        <button type="submmit" [hidden]="isReseted"  class="btn btn-default">Reset</button>
       </form>
     </div>

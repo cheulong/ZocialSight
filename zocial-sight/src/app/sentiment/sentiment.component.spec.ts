@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ChartsModule } from 'ng2-charts';
 import { SentimentComponent } from './sentiment.component';
 
 describe('SentimentComponent', () => {
@@ -8,7 +8,8 @@ describe('SentimentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SentimentComponent ]
+      declarations: [ SentimentComponent ],
+      imports:[ChartsModule]
     })
     .compileComponents();
   }));

@@ -8,7 +8,8 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class TestService {
-  public now: Date = new Date();
+  public now: Date = new Date("2018-06-10");
+
   private date:string;
    private toDate:Date;
   constructor(private http: HttpClient,private datePipe: DatePipe) { }
@@ -19,11 +20,11 @@ export class TestService {
 
      }
      getOldDate(value){
+console.log(this.now);
        if(value==' 1day '){
-
         this.toDate = new Date(this.now.getTime() - (24*60*60*1000));
-        // console.log(this.datePipe.transform(this.now,"yyyy-MM-dd"));
-        // console.log(this.datePipe.transform(this.toDate,"yyyy-MM-dd"));
+         console.log(this.datePipe.transform(this.now,"yyyy-MM-dd"));
+         console.log(this.datePipe.transform(this.toDate,"yyyy-MM-dd"));
         }
        else if(value==' 3days '){
         this.toDate = new Date(this.now.getTime() - 3*(24*60*60*1000));

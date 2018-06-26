@@ -15,16 +15,15 @@ export class LoginComponent implements OnInit {
   isReseted=false;
   confirmPassword:string='';
   foods = [
-    { value: '1day', viewValue: `How is your first pet's name` },
-    { value: '3days', viewValue: '3days' },
-    { value: '7days', viewValue: '7days' },
-    { value: '30days', viewValue: '30days' }
+    { value: '1', viewValue: 'What is your favorite food?' },
+    { value: '2', viewValue: 'What is your favorite sport?' }
   ];
-     selected = '7days';
+     selected = '1';
     constructor(private router: Router,private auth: AuthService) {
       this.user.username='';
       this.user.password='';
       this.user.email='';
+      this.user.question=' What is your favorite food? ';
     }
     ngOnInit(){}
     onLogin(): void {
@@ -62,5 +61,7 @@ export class LoginComponent implements OnInit {
       });
       }
     }
-
+getGender(e){
+  this.user.question=e;
+}
 }

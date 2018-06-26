@@ -34,9 +34,9 @@ chartLabels = [];
   }
 
   ngOnInit() {
-    this.someMethod(' 7days ');
+    this.drawGraph(' 7days ');
   }
-  someMethod(value){
+  drawGraph(value){
     this.chartData = [];
     this.tempData=[];
     this.tempLabel=[];
@@ -51,6 +51,7 @@ chartLabels = [];
             this.tempData.push(res[a].comments.length);
             this.data=this.tempData;
             this.chartLabels=this.tempLabel;
+
         }}else{
           this.data=[];
           this.chartLabels=[];

@@ -62,10 +62,10 @@ pantip:any;
   constructor(private testService:TestService) { }
 
   ngOnInit() {
-    this.someMethod(' 7days ')
+    this.changeDate(' 7days ')
   }
 
-someMethod(date){
+changeDate(date){
 
   this.testService.getFBData(date)
   .subscribe(res=>{
