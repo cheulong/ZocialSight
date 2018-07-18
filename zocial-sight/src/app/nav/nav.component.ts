@@ -25,6 +25,7 @@ refresh(){
   }
 logout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('statue');
   this.router.navigateByUrl('/login');
   }
 isLoggedIn(){

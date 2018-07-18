@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: '', component: DashboardComponent,canActivate:
   [EnsureAuthenticatedService] },
   { path: 'dashboard', component: DashboardComponent,canActivate:[EnsureAuthenticatedService] },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
+
 ];
 
 @NgModule({

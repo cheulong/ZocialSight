@@ -7,7 +7,18 @@ export class EnsureAuthenticatedService implements CanActivate {
   constructor(private router: Router) {}
   canActivate(): boolean {
     if (localStorage.getItem('token')) {
-      return true;
+      console.log('a');
+      console.log(localStorage.getItem('statue'));
+      
+      if(localStorage.getItem('statue')===' Admin '){
+        console.log('b');
+        
+        this.router.navigateByUrl('/register');
+        return false;
+      }else{
+        return true;
+      }
+      
     }
     else {
       this.router.navigateByUrl('/login');

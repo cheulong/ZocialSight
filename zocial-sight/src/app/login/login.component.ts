@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { User } from './../models/user';
+import { log } from 'util';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,16 +28,23 @@ export class LoginComponent implements OnInit {
     }
     ngOnInit(){}
     onLogin(): void {
+console.log(this.user);
 
       this.auth.login(this.user)
 
       .then((user) => {
+        localStorage.setItem('statue', user.statue);
         localStorage.setItem('token', user.access_token);
         this.router.navigateByUrl('/dashboard');
 
       })
       .catch((err) => {
-
+        if(this.user.username.length>30){
+          this.errorMessage="The maximum length is 30";
+        }
+        if(this.user.password.length>30){
+          this.errorMessage="The maximum length is 30";
+        }
         this.errorMessage=err.error.message;
 
       });
@@ -58,10 +66,12 @@ export class LoginComponent implements OnInit {
       })
       .catch((err) => {
         this.errorMessageInReset=err.error.message;
+
       });
       }
     }
 getGender(e){
   this.user.question=e;
 }
+
 }

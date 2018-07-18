@@ -11,7 +11,6 @@ export class AuthService {
   constructor(private http: HttpClient) {}
   login(user: User): Promise<any> {
     let url: string = `${this.BASE_URL}/login`;
-    console.log(user);
     return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
   register(user: User): Promise<any> {

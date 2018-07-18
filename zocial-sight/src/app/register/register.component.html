@@ -1,21 +1,69 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 mx-auto">
     <h1>Register</h1>
-    <hr><br>
-    <form  novalidate>
-     <div class="form-group">
-       <label for="username">Username</label>
-       <input type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username" required>
-     </div>
-     <div class="form-group">
-       <label for="email">Username</label>
-       <input type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
-     </div>
-     <div class="form-group">
-       <label for="password">Password</label>
-       <input type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password" required>
-     </div>
-     <button type="button" (click)="onRegister()" class="btn btn-default">Submit</button>
+    <hr>
+    <br>
+    <form novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="firstname">FirstName</label>
+        <input type="text" class="form-control" id="firstname" placeholder="enter firstname" [(ngModel)]="user.firstname" name="firstname"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" class="form-control" id="surname" placeholder="enter surname" [(ngModel)]="user.surname" name="surname"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" placeholder="enter phone" [(ngModel)]="user.phone" name="phone"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="enter address" [(ngModel)]="user.address" name="address"
+          required>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-select [(value)]="selected">
+            <mat-option *ngFor="let food of foods" [value]="food.value" (click)="getGender($event.target.textContent)">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <label for="password">Answer</label>
+        <input #fieldAn="ngModel" type="password" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.answer"
+          name="answer" required [rangeLength]="[4, 20]">
+        <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The password field is required</p>
+        <p *ngIf="fieldAn.errors?.rangeLength">minimum length is 4</p>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-select [(value)]="selectedRole">
+            <mat-option *ngFor="let role of roles" [value]="role.value" (click)="getRole($event.target.textContent)">
+              {{ role.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button type="button" (click)="onRegister()" class="btn btn-default">Submit</button>
     </form>
   </div>
 </div>
