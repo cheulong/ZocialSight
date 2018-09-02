@@ -3,14 +3,15 @@ import * as D3 from 'd3';
 import {TestService} from "./../test.service";
 import { Data } from './../share/data';
 declare let d3: any;
-
 @Component({
-  selector   : 'word-cloud',
-  template: `<div class="word-cloud"></div>`
+  selector: 'word-cloud-neg',
+  templateUrl: './word-cloud-neg.component.html',
+  styleUrls: ['./word-cloud-neg.component.scss']
 })
-export class WordCloudComponent implements OnInit {
+export class WordCloudNegComponent implements OnInit {
 
   @Input() wordData;
+  
   data1 =['Data','Chea'];
 data=[];
   private  rawData:any;
@@ -33,7 +34,7 @@ data=[];
   }
 
   ngOnInit() {
-    console.log('data',this.wordData);
+    console.log('data1',this.wordData);
 
     let cls = this;
     this.testService.getAdvantageData()
@@ -93,7 +94,7 @@ data=[];
   }
 
   private buildSVG() {
-    this.svg = D3.select("div.word-cloud")
+    this.svg = D3.select("div.word-cloud1")
                     .append('svg')
                     .attr('width', this.width )
                     .attr('height', this.height)
@@ -138,7 +139,7 @@ console.log(words);
          })
          .attr('text-anchor', 'middle')
          .attr('transform', d => 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')')
-         .attr('class', 'word-cloud')
+         .attr('class', 'word-cloud1')
          .text(d => {
            return d.text;
          });

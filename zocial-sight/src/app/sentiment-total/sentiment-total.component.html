@@ -1,18 +1,11 @@
 <section>
-
   <div class="normal-card card card-cascade narrower">
-
     <section>
-
       <div class="row">
-
         <div class="col-xl-12 col-lg-12 mr-0">
-
           <div class="view gradient-card-header blue-gradient">
-
-            <h2 class="h2-responsive mb-0">Sentiment</h2>
+            <h2 class="h2-responsive mb-0">Total Comments</h2>
           </div>
-
           <div class="card-body pb-0">
             <mat-form-field>
               <mat-select [(value)]="selected">
@@ -22,26 +15,16 @@
               </mat-select>
             </mat-form-field>
             <div class="row card-body pt-3">
-
-
-
-              <div class="col-md-6">
-                <div class="view gradient-card-header white" style="height:170px;width:170px;">
-                  <canvas  style="width: 212px; height: 256px"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
-                  </canvas>
-                </div>
-              </div>
-              <div class="col-md-6 text-center post-num">
-              <div>Positive<span> {{pos}} </span>%</div>
-                <div>Negative<span> {{neg}} </span>%</div>
-              
+  
+              <div class="col-md-12 post-num">
+                <div class="center">Positive
+                  <span> {{pos}} </span>comments</div>
+                <div class="center">Negative
+                  <span> {{neg}} </span>comments</div>
               </div>
             </div>
-
           </div>
         </div>
-
-
       </div>
     </section>
   </div>

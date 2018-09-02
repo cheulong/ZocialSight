@@ -10,13 +10,19 @@
 
           <div class="view gradient-card-header blue-gradient">
 
-            <h2 class="h2-responsive mb-0">Sales</h2>
+            <h2 class="h2-responsive mb-0">Positive</h2>
           </div>
 
           <div class="card-body pb-0">
 
             <div class="row card-body ">
-
+                <mat-form-field>
+                    <mat-select [(value)]="selected">
+                      <mat-option *ngFor="let food of foods" [value]="food.value" (click)="changeDate($event.target.textContent)">
+                        {{ food.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
               <word-cloud [wordData]="data"></word-cloud>
 
 

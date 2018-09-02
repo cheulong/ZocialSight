@@ -13,7 +13,7 @@ export class EnsureAuthenticatedService implements CanActivate {
       if(localStorage.getItem('statue')===' Admin '){
         console.log('b');
         
-        this.router.navigateByUrl('/register');
+        this.router.navigateByUrl('/users');
         return false;
       }else{
         return true;

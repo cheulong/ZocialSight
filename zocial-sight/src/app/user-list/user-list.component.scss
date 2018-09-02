@@ -1,0 +1,17 @@
+.row{
+    margin-top: 50px;
+}
+.button{
+    padding: 0.375rem 0.75rem!important;
+    margin: 0!important;
+}
+.search{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+.notFound{
+    color: #a7a7a7;
+    font-size: 25px;
+    text-align: center;
+}

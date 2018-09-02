@@ -1,0 +1,47 @@
+<section>
+    <div class="normal-card card card-cascade narrower">
+      <section>
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 mr-0">
+            <div class="view gradient-card-header blue-gradient">
+              <h2 class="h2-responsive mb-0">Top User</h2>
+            </div>
+            <div class="card-body pb-0">
+              <mat-form-field>
+                <mat-select [(value)]="selected">
+                  <mat-option *ngFor="let food of foods" [value]="food.value" (click)="changeDate($event.target.textContent)">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="row card-body">
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                      </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>ssfsfsfs</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>ssfsfsfs</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>ssfsfsfs</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>ssfsfsfs</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  

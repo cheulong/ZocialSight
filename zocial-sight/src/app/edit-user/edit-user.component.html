@@ -1,0 +1,30 @@
+<p>
+{{user.name}}
+</p>
+<p>Username</p>
+<input type="text">
+
+<p>name</p>
+<input type="text" [value]="user.name" (input)="user.name=$event.target.value">
+<p>surname</p>
+<input type="text">
+<p>email</p>
+<input type="text">
+<p>password</p>
+<input type="text">
+<p>phone</p>
+<input type="text">
+
+<p>address</p>
+<input type="text">
+
+<p>question</p>
+<input type="text">
+
+<p>answer</p>
+<input type="text">
+
+<p>role</p>
+<input type="text">
+<button class="btn cancel button" (click)="reset()" >Save</button>
+<button class="btn btn-primary button" (click)="save($event)" >Save</button>

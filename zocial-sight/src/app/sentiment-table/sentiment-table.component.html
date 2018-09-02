@@ -1,0 +1,46 @@
+<section>
+  <div class="normal-card card card-cascade narrower">
+    <section>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 mr-0">
+          <div class="view gradient-card-header blue-gradient">
+            <h2 class="h2-responsive mb-0">Sentiment List</h2>
+          </div>
+          <div class="card-body pb-0">
+            <mat-form-field>
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let food of foods" [value]="food.value" (click)="changeDate($event.target.textContent)">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="row card-body">
+                <table>
+                  <tr>
+                    <th>Position</th>
+                    <th>Negative</th>
+                  </tr>
+                  <tr>
+                    <td class="fbColor">good</td>
+                    <td class="twColor">bad</td>
+                  </tr>
+                  <tr>
+                      <td class="fbColor">love it</td>
+                      <td class="ptColor">hate</td>
+                    </tr>
+                    <tr>
+                        <td class="twColor">nice</td>
+                        <td class="ptColor">dont like</td>
+                      </tr>
+                      <tr>
+                          <td class="fbColor">love</td>
+                          <td class="fbColor">hate it</td>
+                        </tr>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

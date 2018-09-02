@@ -74,4 +74,33 @@ console.log(this.now);
        let URL='http://127.0.0.1:5000/getLocation/'+this.datePipe.transform(this.toDate,"yyyy-MM-dd")+'/'+this.datePipe.transform(this.now,"yyyy-MM-dd");
        return this.http.get(URL);
      }
+     getSentiment(date){
+       this.getOldDate(date);
+       let URL='http://127.0.0.1:5000/getSentiment/'+this.datePipe.transform(this.toDate,"yyyy-MM-dd")+'/'+this.datePipe.transform(this.now,"yyyy-MM-dd");
+      return this.http.get(URL);
+     }
+     getSentimentText(date){
+      this.getOldDate(date);
+      let URL='http://127.0.0.1:5000/getSentiment/'+this.datePipe.transform(this.toDate,"yyyy-MM-dd")+'/'+this.datePipe.transform(this.now,"yyyy-MM-dd");
+     return this.http.get(URL);
+    }
+     getUsers(){
+      let URL='http://127.0.0.1:1111/users';
+      return this.http.get(URL);
+     }
+     getUser(user){
+      return { username: "long",
+      name: "cheulong",
+      surname: "sear",
+      email: "searcheulong@gmail.com",
+      password: "1234",
+      phone: "1235",
+      address: "sf",
+      question: " What is your favorite sport? ",
+      answer: "soccer",
+      statue: "Staff"};
+     }
+     saveUser(user){
+
+     }
   }

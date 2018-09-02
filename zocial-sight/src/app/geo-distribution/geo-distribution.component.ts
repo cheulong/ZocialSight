@@ -24,6 +24,7 @@ export class GeoDistributionComponent implements OnInit {
    temp:any;
    datas=[];
    max:number;
+   initValue= true;
 dataSource:any;
 foods = [
   { value: '1day', viewValue: '1day' },
@@ -45,7 +46,16 @@ this.getLocation(' 30days ');
   }
 
 init(){
-
+  if(!this.initValue){
+    this.index=0;
+    d3.select("div.geo").removeChild(d3.select("div.geo").childNodes[0]);
+    d3.select("div.geo").removeChild(d3.select("div.geo").childNodes[0])
+  console.log('hi');
+  } else{
+  console.log('hi1');
+    this.initValue=false;
+  }
+ 
   this.bigText = d3.select("div.geo").append('text')
     .classed('big-text', true);
 
@@ -206,6 +216,7 @@ this.provinces1.sort(function(obj1, obj2) {
   .subscribe(res=>{
     this.temp=res;
     this.datas=this.temp;
+console.log(this.datas);
 
     this.init();
    })

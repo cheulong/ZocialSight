@@ -28,6 +28,16 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { CustomFormsModule } from 'ng2-validation';
 import {HttpModule} from '@angular/http';
+import { UserListComponent } from './user-list/user-list.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { SentimentPageComponent } from './sentiment-page/sentiment-page.component';
+import { SentimentTotalComponent } from './sentiment-total/sentiment-total.component';
+import { SentimentTableComponent } from './sentiment-table/sentiment-table.component';
+import { InfluencerComponent } from './influencer/influencer.component';
+import { TopUserComponent } from './top-user/top-user.component';
+import { TopNegTrendComponent } from './top-neg-trend/top-neg-trend.component';
+import { WordCloudNegComponent } from './word-cloud-neg/word-cloud-neg.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +52,17 @@ import {HttpModule} from '@angular/http';
     GeoDistributionComponent,
     WordCloudComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserListComponent,
+    SearchPipe,
+    EditUserComponent,
+    SentimentPageComponent,
+    SentimentTotalComponent,
+    SentimentTableComponent,
+    InfluencerComponent,
+    TopUserComponent,
+    TopNegTrendComponent,
+    WordCloudNegComponent
 
   ],
   imports: [

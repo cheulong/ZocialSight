@@ -60,9 +60,7 @@ canvas {
   .all{
     margin-top:70px!important;
   }
-  .pie-to-center{
-    //margin-right: ;
-  }
+
 
 }
 @media (max-width: 1199px ){
@@ -74,8 +72,17 @@ canvas {
 }
 @media (max-width: 991px ){
 
-  .pie-to-center{
 
-  }
 
+}
+.mat-form-field{
+  font-size: 10px;
+position: absolute;
+text-align: right;
+left: 10px;
+top: -30px;
+width: 50px;
+}
+span.mat-select-placeholder{
+  color: white!important;
 }

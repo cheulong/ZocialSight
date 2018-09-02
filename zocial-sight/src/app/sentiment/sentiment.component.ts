@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import {TestService} from "./../test.service";
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+
 
 @Component({
   selector: 'app-sentiment',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sentiment.component.scss']
 })
 export class SentimentComponent implements OnInit {
+ @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
   chartOptions = {
 
   responsive: false,
@@ -21,14 +26,40 @@ export class SentimentComponent implements OnInit {
   };
 
   chartData = [
-  { data: [330, 600, 260, 700], label: 'Account A' },
+  { data: [,], label: 'Account A' },
 
   ];
 
-  chartLabels = ['January', 'February', 'Mars', 'April'];
-  constructor() { }
+chartLabels = ['Positive','Negative'];
+  
+  pos=0;
+     neg=0;
+     temp:any;
+     foods = [
+      { value: '1day', viewValue: '1day' },
+      { value: '3days', viewValue: '3days' },
+      { value: '7days', viewValue: '7days' },
+      { value: '30days', viewValue: '30days' }
+    ];
+       selected = '7days';
+  constructor(private testService:TestService) { }
+
 
   ngOnInit() {
+    this.changeDate(' 7days ')
+
+  }
+changeDate(date){
+   this.testService.getSentiment(date)
+  .subscribe(res=>{
+  this.temp=res;
+        if(this.temp['neg']+this.temp['pos']!=0){
+        this.pos=Math.round((this.temp['pos']/(this.temp['neg']+this.temp['neg']))*100);
+        this.neg=100-this.pos;
+        this.chartData[0].data[0]=this.pos;
+        this.chartData[0].data[1]=this.neg;
+      this.chart.chart.update();
   }
 
-}
+})
+}}
