@@ -10,13 +10,13 @@
 
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-            <li *ngIf="isLoggedIn()" class="nav-item"  [routerLink]="['/sentiment']">
+            <li *ngIf="isAdmin()" class="nav-item"  [routerLink]="['/sentiment']">
                 <a class="nav-link waves-light" mdbWavesEffect>Sentiment</a>
             </li>
-            <li *ngIf="isLoggedIn()" class="nav-item"  (click)="refresh()">
+            <li *ngIf="isAdmin()" class="nav-item"  (click)="refresh()">
                 <a class="nav-link waves-light" [ngClass]="{'loading': loading}" mdbWavesEffect><img src="http://simpleicon.com/wp-content/uploads/refresh.svg" alt=""></a>
             </li>
-            <li *ngIf="isLoggedIn()" class="nav-item">
+            <li *ngIf="isAdmin()" class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect>Account</a>
             </li>
             <!-- <li class="nav-item">
