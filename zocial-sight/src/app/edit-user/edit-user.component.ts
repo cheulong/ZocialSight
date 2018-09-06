@@ -2,52 +2,36 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { TestService } from "../test.service";
-
+import { Router } from '@angular/router';
 @Component({
   selector: "app-edit-user",
   templateUrl: "./edit-user.component.html",
   styleUrls: ["./edit-user.component.scss"]
 })
 export class EditUserComponent implements OnInit {
-  users = [{},
-    {
-      username: "long",
-      name: "cheulong",
-      surname: "sear",
-      email: "searcheulong@gmail.com",
-      password: "1234",
-      phone: "1235",
-      address: "sf",
-      question: " What is your favorite sport? ",
-      answer: "soccer",
-      statue: "Staff"
-    },{}
-  ];
-  constructor(private activeRoute: ActivatedRoute,private test:TestService) {}
-  queryParams = this.activeRoute.snapshot.queryParams;
+  constructor(private router: Router,private activeRoute: ActivatedRoute, private test: TestService) {}
   routeParams = this.activeRoute.snapshot.params;
-  user:any;
+  user;
   ngOnInit() {
-   this.user= this.test.getUser('hi');
-   
-  // this.user = this.users.find(user => user.username === this.routeParams.id);
+    this.test.getUser(this.routeParams.username).subscribe(res => {
+      this.user = res;
+    });
+    // this.user = this.users.find(user => user.username === this.routeParams.id);
     // do something with the parameters
-  //  console.log(this.users.find(user => user.username === this.routeParams.id));
+    //  console.log(this.users.find(user => user.username === this.routeParams.id));
   }
-  save(event){
-    this.user.name=event.target.value;
-    console.log(this.user.name);
-    
-  }
-  reset(){
+  save() {
+    console.log('user',this.user);
+    this.test.saveUser(this.user).subscribe(res=>{
+      this.router.navigateByUrl('/users');
 
-this.user =  this.test.getUser('hi');
-    console.log(this.user.name);
-    
+    }
+    )
   
   }
-  filterName:string;
-clear(){
-// this.user.name = this.name;
-}
+  reset() {
+    this.user = this.test.getUser("hi");
+    console.log(this.user.name);
+  }
+  filterName: string;
 }

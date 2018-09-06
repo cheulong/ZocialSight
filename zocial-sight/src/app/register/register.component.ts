@@ -14,8 +14,8 @@ export class RegisterComponent {
     { value: '2', viewValue: 'What is your favorite sport?' }
   ];
   roles = [
-    { value: '1', viewValue: 'Company Staff' },
-    { value: '2', viewValue: 'Product owner' }
+    { value: '1', viewValue: 'Staff' },
+    { value: '2', viewValue: 'Product Owner' }
   ];
   selected = '1';
   selectedRole = '1';
@@ -24,13 +24,12 @@ export class RegisterComponent {
     this.user.question=' What is your favorite food? ';
   }
   onRegister(): void {
-    console.log('regist');
+    // console.log('user',this.user);
     
-    localStorage.setItem('statue',this.user.statue);
     this.auth.register(this.user)
     .then((user) => {
       localStorage.setItem('token', user.access_token);
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/users');
     })
     .catch((err) => {
       console.log(err);

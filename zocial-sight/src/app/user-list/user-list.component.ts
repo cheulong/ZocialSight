@@ -1,46 +1,26 @@
 import { TestService } from "./../test.service";
-import { Component, OnInit,OnChanges,DoCheck,SimpleChanges } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+
 @Component({
   selector: "app-user-list",
   templateUrl: "./user-list.component.html",
   styleUrls: ["./user-list.component.scss"]
 })
-export class UserListComponent implements OnInit,OnChanges {
-  users = [
-    { name: "long", role: "a"  },
-    { name: "b", role: "a"  },
-    { name: "c", role: "b"  },
-    { name: "d", role: "b"  },
-  ];
-  owners=[];
-  staffs=[];
+export class UserListComponent implements OnInit {
+  users;
+  owners;
+  staffs;
   constructor(private router: Router, private test: TestService) {}
 
   ngOnInit() {
     this.test.getUsers().subscribe(res => {
-      console.log(res);
+      this.users=res;
+      console.log('hi',this.users);
+      
+      this.seperate();
     });
-    
-    this.owners=this.findOwner(this.users);
-    this.staffs=this.findStaff(this.users);
-    this.users.sort(function(a, b) {
-      var x = a.name.toLowerCase();
-      var y = b.name.toLowerCase();
-      if (x < y) {
-        return -1;
-      }
-      if (x > y) {
-        return 1;
-      }
-      return 0;
-    });
-  }
-  ngOnChanges(changes: SimpleChanges){
-    this.users;
-    console.log('hi');
-
   }
   addUser() {
     this.router.navigateByUrl("/register");
@@ -49,28 +29,37 @@ export class UserListComponent implements OnInit,OnChanges {
     // console.log(this.ownerList.name);
     if (confirm("Are you sure???")) {
       var index = this.users.indexOf(item);
-    console.log(index);
-
       this.users.splice(index, 1);
       this.seperate();
-      console.log('users',this.users.length);
-      
+      console.log('item',item);
+      this.test.deleteUser(item.username);
     } else {
       console.log("Cancel");
     }
   }
   edit(item) {
-    console.log(item.name);
-    this.router.navigate(["/user", item.name]);
+    console.log(item.username);
+    this.router.navigate(["/user", item.username]);
   }
   seperate(){
+    this.users.sort(function(a, b) {
+      var x = a.firstname.toLowerCase();
+      var y = b.firstname.toLowerCase();
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+      return 0;
+    });
     this.owners=this.findOwner(this.users);
     this.staffs=this.findStaff(this.users);
   }
   findOwner(users){
     const owners=[];
     users.map(user=>{
-      if(user.role=='a'){
+      if(user.statue==' Product Owner '){
         owners.push(user);
       }
     })
@@ -81,7 +70,7 @@ export class UserListComponent implements OnInit,OnChanges {
   findStaff(users){
     const staffs=[];
     users.map(user=>{
-      if(user.role=='b'){
+      if(user.statue==' Staff '){
         staffs.push(user);
       }
     })

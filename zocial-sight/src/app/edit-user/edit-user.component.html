@@ -1,30 +1,27 @@
-<p>
-{{user.name}}
-</p>
-<p>Username</p>
-<input type="text">
-
-<p>name</p>
-<input type="text" [value]="user.name" (input)="user.name=$event.target.value">
-<p>surname</p>
-<input type="text">
-<p>email</p>
-<input type="text">
-<p>password</p>
-<input type="text">
-<p>phone</p>
-<input type="text">
-
-<p>address</p>
-<input type="text">
-
-<p>question</p>
-<input type="text">
-
-<p>answer</p>
-<input type="text">
-
-<p>role</p>
-<input type="text">
-<button class="btn cancel button" (click)="reset()" >Save</button>
-<button class="btn btn-primary button" (click)="save($event)" >Save</button>
+<div class="container mt-4">
+  <div class="col-md-5 mx-auto">
+    <h3 class="title">Profile</h3>
+    <p>Username</p>
+    <input type="text"  [(ngModel)]="user.username">
+    <p>Firstname</p>
+    <input type="text" [(ngModel)]="user.firstname">
+    <p>Surname</p>
+    <input type="text" [(ngModel)]="user.surname">
+    <p>Email</p>
+    <input type="text" [(ngModel)]="user.email">
+    <p>Phone</p>
+    <input type="text" [(ngModel)]="user.phone">
+    <p>Address</p>
+    <input type="text" [(ngModel)]="user.address">
+    <p>Question</p>
+    <p>{{user.question}}</p>
+    <p>Answer</p>
+    <input type="text" [(ngModel)]="user.answer">
+    <p>Role</p>
+    <input type="text" [(ngModel)]="user.statue">
+    <div class="row">
+      <button class="btn cancel button" [routerLink]="['/users']">Cancel</button>
+      <button class="btn btn-primary button" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
-<div class="container" style="display: flex;justify-content: flex-end;">
-  <button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
-
-</div>
 <div class="container">
-  <div class="col-md-9 mx-auto">
+
+  <div class="col-md-9 mx-auto">  
+    <div style="display: flex;justify-content: flex-end;">
+      <button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
+    </div>
     <div class="row">
       <div class="col-md-6">
         <h3>Product Owner</h3>
@@ -32,15 +32,16 @@
           <td>{{province.city}}</td>
           <td>{{province.num}}</td> 
         </tr> -->
-        <tr *ngIf="(owners | search: query : 'name').length === 0">
-            <th colspan="5" class="notFound">Data not found</th> 
-          </tr>
-        <tr *ngFor="let owner of owners | search: query : 'name';let i = index" >
+
+        <tr *ngIf="(owners | search: query : 'firstname').length === 0">
+          <th colspan="5" class="notFound">Data not found</th>
+        </tr>
+        <tr *ngFor="let owner of owners | search: query : 'firstname';let i = index">
           <th>{{i+1}}</th>
-          <td>{{owner.name}}</td>
-          <td>owner</td>
-          <td>owner@gmail.com</td>
-          <td>34434343</td>
+          <td>{{owner.firstname}}</td>
+          <td>{{owner.surname}}</td>
+          <td>{{owner.email}}</td>
+          <td>{{owner.phone}}</td>
           <td>
             <button class="btn btn-primary button" (click)="edit(owner)">edit</button>
             <button class="btn btn-danger button" (click)="remove(owner)">x</button>
@@ -82,15 +83,15 @@
           <td>{{province.city}}</td>
           <td>{{province.num}}</td> -->
 
-        <tr *ngIf="(staffs | search: query1 : 'name').length === 0">
-          <th colspan="5" class="notFound">Data not found</th> 
+        <tr *ngIf="(staffs | search: query1 : 'firstname').length === 0">
+          <th colspan="5" class="notFound">Data not found</th>
         </tr>
-        <tr *ngFor="let staff of staffs | search: query1 : 'name';let i = index ">
+        <tr *ngFor="let staff of staffs | search: query1 : 'firstname';let i = index ">
           <th>{{i+1}}</th>
-          <td>{{staff.name}}</td>
-          <td>staff</td>
-          <td>staff@gmail.com</td>
-          <td>343433</td>
+          <td>{{staff.firstname}}</td>
+          <td>{{staff.surname}}</td>
+          <td>{{staff.email}}</td>
+          <td>{{staff.phone}}</td>
           <td>
             <button class="btn btn-primary button" (click)="edit(staff)">edit</button>
             <button class="btn btn-danger button" (click)="remove(staff)">x</button>
