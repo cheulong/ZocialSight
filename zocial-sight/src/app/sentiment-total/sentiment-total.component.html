@@ -4,24 +4,57 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 mr-0">
           <div class="view gradient-card-header blue-gradient">
-            <h2 class="h2-responsive mb-0">Total Comments</h2>
+            <h2 class="h2-responsive mb-0">Percentage of Comment Sentiment</h2>
           </div>
-          <div class="card-body pb-0">
-            <mat-form-field>
-              <mat-select [(value)]="selected">
-                <mat-option *ngFor="let food of foods" [value]="food.value" (click)="changeDate($event.target.textContent)">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div class="row card-body pt-3">
-  
-              <div class="col-md-12 post-num">
-                <div class="center">Positive
+          <div class=" pb-0" style="margin-top: 30px;">
+            <div >
+              <div class=" row pt-3">
+                <div class="col-md-6">
+                    <div class="view gradient-card-header white" style="height: 130px;width: 110px;margin-left: 50px;">
+                      <canvas  style="width: 150px; height: 168px;"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                      </canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-6 text-center post-num">
+                      <p class="date">Yesterday</p>
+                  <div>Positive<span> {{pos}} </span>%</div>
+                    <div>Negative<span> {{neg}} </span>%</div>            
+                  </div>
+                </div>
+                <div class=" row pt-3">
+                    <div class="col-md-6">
+                        <div class="view gradient-card-header white" style="height: 130px;width: 110px;margin-left: 50px;">
+                          <canvas  style="width: 150px; height: 168px;"  baseChart [chartType]="'pie'" [datasets]="chartData1" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                          </canvas>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center post-num">
+                        <p class="date">Last week</p>
+                      <div>Positive<span> {{pos}} </span>%</div>
+                        <div>Negative<span> {{neg}} </span>%</div>            
+                      </div>
+                    </div>
+                    <div class=" row pt-3">
+                        <div class="col-md-6">
+                            <div class="view gradient-card-header white" style="height: 130px;width: 110px;margin-left: 50px;">
+                              <canvas  style="width: 150px; height: 168px;"  baseChart [chartType]="'pie'" [datasets]="chartData2" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                              </canvas>
+                            </div>
+                          </div>
+                          <div class="col-md-6 text-center post-num">
+                              <p class="date">Last month</p>                          
+                            <div>Positive<span> {{pos}} </span>%</div>
+                            <div>Negative<span> {{neg}} </span>%</div>            
+                          </div>
+                        </div>
+              <!-- <div class="col-md-12 post-num"> -->
+                <!-- <div class="center">Positive
                   <span> {{pos}} </span>comments</div>
                 <div class="center">Negative
-                  <span> {{neg}} </span>comments</div>
-              </div>
+                  <span> {{neg}} </span>comments</div> -->
+                <!-- <canvas  style="width: 212px; height: 256px"  baseChart [chartType]="'pie'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                  </canvas> -->
+              <!-- </div> -->
             </div>
           </div>
         </div>

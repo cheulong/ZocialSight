@@ -3,40 +3,60 @@
     <h1>Register</h1>
     <hr>
     <br>
-    <form novalidate>
+    <form novalidate  #heroForm="ngForm" (ngSubmit)="onRegister()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username"
-          required>
+        <input #fieldUsername="ngModel" type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username"
+          required  [rangeLength]="[2, 50]">
+          <p *ngIf="fieldUsername.errors?.required&&fieldUsername.touched">The Username field is required</p>
+          <p *ngIf="fieldUsername.errors?.rangeLength">Length between 2 and 50</p>
+
       </div>
       <div class="form-group">
         <label for="firstname">FirstName</label>
-        <input type="text" class="form-control" id="firstname" placeholder="enter firstname" [(ngModel)]="user.firstname" name="firstname"
-          required>
+        <input #fieldFirstname="ngModel"  type="text" class="form-control" id="firstname" placeholder="enter firstname" [(ngModel)]="user.firstname" name="firstname"
+          required [rangeLength]="[2, 50]" pattern="[a-zA-Z\-\s]*">
+          <p *ngIf="fieldFirstname.errors?.required&&fieldFirstname.touched">The firstname field is required</p>
+          <p *ngIf="fieldFirstname.errors?.rangeLength">Length between 2 and 50</p>
+          <p *ngIf="fieldFirstname.errors?.pattern">Please use english only</p>
+
       </div>
       <div class="form-group">
         <label for="surname">Surname</label>
-        <input type="text" class="form-control" id="surname" placeholder="enter surname" [(ngModel)]="user.surname" name="surname"
-          required>
+        <input  #fieldSurname="ngModel" type="text" class="form-control" id="surname" placeholder="enter surname" [(ngModel)]="user.surname" name="surname"
+          required [rangeLength]="[2, 50]" pattern="[a-zA-Z\-\s]*">
+          <p *ngIf="fieldSurname.errors?.required&&fieldSurname.touched">The surname field is required</p>
+          <p *ngIf="fieldSurname.errors?.rangeLength">Length between 2 and 50</p>
+          <p *ngIf="fieldSurname.errors?.pattern">Please use english only</p>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
+        <input  #fieldEmail="ngModel" type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required email >
+        <p *ngIf="fieldEmail.errors?.required&&fieldEmail.touched">The email field is required</p>
+          <p *ngIf="fieldEmail.errors?.rangeLength">Length between 2 and 50</p>
+          <p *ngIf="fieldSurname.errors?.email">Email is invalid</p>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password"
-          required>
+        <input #fieldPassword="ngModel" type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password"
+          required  [rangeLength]="[2, 50]">
+          <p *ngIf="fieldPassword.errors?.required&&fieldPassword.touched">The password field is required</p>
+          <p *ngIf="fieldPassword.errors?.rangeLength">Length between 2 and 50</p>
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" placeholder="enter phone" [(ngModel)]="user.phone" name="phone"
-          required>
+        <input #fieldPhone="ngModel"  type="text" class="form-control" id="phone" placeholder="enter phone" [(ngModel)]="user.phone" name="phone"
+          required [rangeLength]="[10, 10]" pattern="[0-9]+">
+          <p *ngIf="fieldPhone.errors?.required&&fieldPhone.touched">The phone field is required</p>
+          <p *ngIf="fieldPhone.errors?.pattern">Please use only number</p>
+          <p *ngIf="fieldPhone.errors?.rangeLength&&!fieldPhone.errors?.pattern">Length must be 10</p>
       </div>
       <div class="form-group">
         <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="enter address" [(ngModel)]="user.address" name="address"
-          required>
+        <input #fieldAddress="ngModel" type="text" class="form-control" id="address" placeholder="enter address" [(ngModel)]="user.address" name="address"
+          required [rangeLength]="[4, 100]" >
+          <p *ngIf="fieldAddress.errors?.required&&fieldAddress.touched">The address field is required</p>
+          <p *ngIf="fieldAddress.errors?.rangeLength">Length between 4 and 100</p>
       </div>
       <div class="form-group">
         <mat-form-field>
@@ -50,9 +70,9 @@
       <div class="form-group">
         <label for="password">Answer</label>
         <input #fieldAn="ngModel" type="text" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.answer"
-          name="answer" required [rangeLength]="[4, 20]">
-        <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The answer field is required</p>
-        <p *ngIf="fieldAn.errors?.rangeLength">minimum length is 4</p>
+          name="answer" required [rangeLength]="[2, 50]">
+          <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The answer field is required</p>
+          <p *ngIf="fieldAn.errors?.rangeLength">Length between 2 and 50</p>
       </div>
       <div class="form-group">
         <mat-form-field>
@@ -64,7 +84,7 @@
         </mat-form-field>
       </div>
       <button type="button" [routerLink]="['/users']" class="btn btn-blue-grey">Back</button>
-      <button type="button" (click)="onRegister()" class="btn btn-default">Submit</button>
+      <button type="submit" [disabled]="!heroForm.form.valid" class="btn btn-default">Submit</button>
     </form>
   </div>
 </div>

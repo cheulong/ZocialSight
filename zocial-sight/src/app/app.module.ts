@@ -23,7 +23,6 @@ import {DatePipe} from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
-
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
 import { CustomFormsModule } from 'ng2-validation';

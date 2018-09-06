@@ -55,12 +55,8 @@ init(){
   console.log('hi1');
     this.initValue=false;
   }
- 
   this.bigText = d3.select("div.geo").append('text')
     .classed('big-text', true);
-
-
-
     this.color = D3.scaleThreshold()
     .domain(D3.range(1, 10))
     .range(D3.schemeBlues[9]);

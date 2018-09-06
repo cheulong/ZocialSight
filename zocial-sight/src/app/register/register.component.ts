@@ -32,7 +32,7 @@ export class RegisterComponent {
       this.router.navigateByUrl('/users');
     })
     .catch((err) => {
-      console.log(err);
+      alert(err.error.message);
     });
   }
   getGender(e){

@@ -1,12 +1,45 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,ViewChild } from "@angular/core";
 import { TestService } from "./../test.service";
-
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 @Component({
   selector: "app-sentiment-total",
   templateUrl: "./sentiment-total.component.html",
   styleUrls: ["./sentiment-total.component.scss"]
 })
 export class SentimentTotalComponent implements OnInit {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
+  chartOptions = {
+  responsive: false,
+  layout: {
+            padding: {
+                left: 50,
+                right: 0,
+                top: 0,
+                bottom: 0
+            }
+        },
+  legend: { display: false }
+  };
+  chartData = [
+  { data: [,], label: 'Account A' },
+  ];
+
+chartLabels = ['Positive','Negative'];
+
+  chartData1 = [
+  { data: [27,73], label: 'Account A' },
+
+  ];
+  chartData2 = [
+    { data: [27,73], label: 'Account A' },
+  
+    ];
+
+  
+  pos=0;
+     neg=0;
+     temp:any;
   foods = [
     { value: "1day", viewValue: "1day" },
     { value: "3days", viewValue: "3days" },
@@ -14,21 +47,24 @@ export class SentimentTotalComponent implements OnInit {
     { value: "30days", viewValue: "30days" }
   ];
   selected = "7days";
-  pos = 0;
-  neg = 0;
-  temp: any;
+ 
   constructor(private testService: TestService) {}
 
   ngOnInit() {
     this.changeDate(" 7days ");
   }
-  changeDate(date) {
-    this.testService.getSentiment(date).subscribe(res => {
-      this.temp = res;
-      if (this.temp["neg"] + this.temp["pos"] != 0) {
-        this.pos = this.temp["pos"];
-        this.neg = this.temp["neg"];
-      }
-    });
-  }
+  changeDate(date){
+    this.testService.getSentiment(date)
+   .subscribe(res=>{
+   this.temp=res;
+         if(this.temp['neg']+this.temp['pos']!=0){
+         this.pos=Math.round((this.temp['pos']/(this.temp['neg']+this.temp['neg']))*100);
+         this.neg=100-this.pos;
+         this.chartData[0].data[0]=this.pos;
+         this.chartData[0].data[1]=this.neg;
+       this.chart.chart.update();
+   }
+ 
+ })
+ }
 }
