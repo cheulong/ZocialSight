@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { SentimentPageComponent } from './sentiment-page/sentiment-page.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

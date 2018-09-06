@@ -1,3 +1,4 @@
+import { SearchPipe } from './../pipe/search.pipe';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserListComponent } from './user-list.component';
@@ -8,7 +9,8 @@ describe('UserListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserListComponent ]
+      declarations: [ UserListComponent ],
+      imports: [SearchPipe]
     })
     .compileComponents();
   }));

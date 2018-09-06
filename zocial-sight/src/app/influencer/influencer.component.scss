@@ -4,9 +4,16 @@ $pantip-color: #512880;
 mat-form-field {
   width: 100%;
 }
-
+.header{
+  width: 35%!important;
+}
 .h2-responsive {
   color: white;
+  font-size: 110%;
+  width:35%;
+}
+.blue-gradient{
+  background:  #45cafc!important;
 }
 
 .post-num {
