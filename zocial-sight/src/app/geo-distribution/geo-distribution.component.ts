@@ -57,10 +57,10 @@ init(){
   }
   this.bigText = d3.select("div.geo").append('text')
     .classed('big-text', true);
-    this.color = D3.scaleThreshold()
-    .domain(D3.range(1, 10))
-    .range(D3.schemeBlues[9]);
-
+  this.color = D3.scaleThreshold()
+    .domain(D3.range(1, 10));
+    
+    this.color.range(D3.schemeBlues[9]);
     this.svg = d3.select("div.geo").append("svg")
       .attr("width", this.width)
       .attr("height", this.height)
