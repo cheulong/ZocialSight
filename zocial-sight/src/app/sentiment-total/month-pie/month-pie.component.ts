@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { TestService } from "./../../test.service";
 import { BaseChartDirective } from "ng2-charts/ng2-charts";
+import { SentimentService } from "../../sentiment.service";
 @Component({
   selector: 'app-month-pie',
   templateUrl: './month-pie.component.html',
@@ -34,13 +34,13 @@ export class MonthPieComponent implements OnInit {
 posNum=0;
 negNum=0;
   temp: any;
-  constructor(private testService: TestService) { }
+  constructor(private sentimentService: SentimentService) { }
 
   ngOnInit() {
     this.changeDate(" 30days ");
   }
   changeDate(date) {
-    this.testService.getSentiment(date).subscribe(res => {
+    this.sentimentService.getSentiment(date).subscribe(res => {
       this.temp = res;
       if (this.temp["neg"] + this.temp["pos"] != 0) {
         this.posNum=this.temp["pos"];

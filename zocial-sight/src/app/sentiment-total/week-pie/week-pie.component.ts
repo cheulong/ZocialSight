@@ -1,5 +1,5 @@
+import { SentimentService } from './../../sentiment.service';
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { TestService } from "./../../test.service";
 import { BaseChartDirective } from "ng2-charts/ng2-charts";
 @Component({
   selector: 'app-week-pie',
@@ -34,13 +34,13 @@ export class WeekPieComponent implements OnInit {
 posNum=0;
 negNum=0;
   temp: any;
-  constructor(private testService: TestService) { }
+  constructor(private sentimentService: SentimentService) { }
 
   ngOnInit() {
     this.changeDate(" 7days ");
   }
   changeDate(date) {
-    this.testService.getSentiment(date).subscribe(res => {
+    this.sentimentService.getSentiment(date).subscribe(res => {
       this.temp = res;
       if (this.temp["neg"] + this.temp["pos"] != 0) {
         this.posNum=this.temp["pos"];
