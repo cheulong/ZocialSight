@@ -20,17 +20,24 @@ export class RegisterComponent {
   selected = "1";
   selectedRole = "1";
   constructor(private router: Router, private auth: AuthService) {
-    this.user.statue = " Product Owner ";
+    this.user.statue = " Staff ";
     this.user.question = " What is your favorite food? ";
   }
-  onRegister(): void {
-    // console.log('user',this.user);
+  addUser(){
+    let result =this.onRegister(this.user);
+    console.log('remove',result);
+    
+  }
+  onRegister(user1) {
+    let user;
     if (confirm("Are you sure to add new user?")) {
       this.auth
-        .register(this.user)
+        .register(user1)
         .then(user => {
           localStorage.setItem("token", user.access_token);
           this.router.navigateByUrl("/users");
+          user = user.user;
+          return user;
         })
         .catch(err => {
           alert(err.error.message);
@@ -38,6 +45,7 @@ export class RegisterComponent {
     } else {
       console.log("Cancel");
     }
+    return user;
   }
   getGender(e) {
     console.log(e);

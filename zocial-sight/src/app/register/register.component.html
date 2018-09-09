@@ -3,7 +3,7 @@
     <h1>Register</h1>
     <hr>
     <br>
-    <form novalidate #heroForm="ngForm" (ngSubmit)="onRegister()">
+    <form novalidate #heroForm="ngForm" (ngSubmit)="addUser()">
       <div class="form-group">
         <label for="username">Username</label>
         <input #fieldUsername="ngModel" type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username"

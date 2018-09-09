@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { TestService } from './../test.service';
+import { SentimentService } from './../sentiment.service';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-top-user',
-  templateUrl: './top-user.component.html',
-  styleUrls: ['./top-user.component.scss']
+  selector: "app-top-user",
+  templateUrl: "./top-user.component.html",
+  styleUrls: ["./top-user.component.scss"]
 })
 export class TopUserComponent implements OnInit {
   foods = [
@@ -14,16 +14,15 @@ export class TopUserComponent implements OnInit {
     { value: "30days", viewValue: "30days" }
   ];
   selected = "7days";
-  constructor(private testService:TestService) { }
+  constructor(private sentimentService: SentimentService) {}
   topUsers;
   ngOnInit() {
-    this.testService.getTopUser()
-      .subscribe(res => {
-this.topUsers=res;
-
-
-      })
-
+    this.getTopUser();
   }
-
+  getTopUser() {
+    this.sentimentService.getTopUser().subscribe(res => {
+      this.topUsers = res;
+    });
+    return this.topUsers;
+  }
 }

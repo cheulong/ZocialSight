@@ -1,6 +1,6 @@
-import { TestService } from './../test.service';
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+import { MonitorService } from '../monitor.service';
 @Component({
   selector: 'app-total-page-view',
   templateUrl: './total-page-view.component.html',
@@ -31,7 +31,7 @@ res;
   data = [];
   tempLabel = [];
   chartLabels = [];
-  constructor(private testService: TestService) { }
+  constructor(private monitorService: MonitorService) { }
 
   ngOnInit() {
     this.drawGraph(' 7days ');
@@ -43,7 +43,7 @@ res;
     this.tempLabel = [];
     this.data = [];
     this.chartLabels = [];
-    this.testService.getPageReact(value)
+    this.monitorService.getPageReact(value)
       .subscribe(res => {
 this.res=res;
         if (this.res.length > 0) {

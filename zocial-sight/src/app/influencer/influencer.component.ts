@@ -1,4 +1,4 @@
-import { TestService } from "./../test.service";
+import { SentimentService } from './../sentiment.service';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -18,10 +18,13 @@ export class InfluencerComponent implements OnInit {
   influencerFB;
   influencerTW;
   influencerPT;
-  constructor(private testService: TestService) {}
+  constructor(private sentimentService: SentimentService) {}
 
   ngOnInit() {
-    this.testService.getInfluencer().subscribe(res => {
+   this.getInfluencer();
+  }
+  getInfluencer(){
+    this.sentimentService.getInfluencer().subscribe(res => {
       this.influencer = res;
       if (this.influencer.influencerFB)
         this.influencerFB = this.influencer.influencerFB;

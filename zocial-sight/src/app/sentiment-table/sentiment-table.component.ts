@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { TestService } from "../test.service";
+import { SentimentService } from "../sentiment.service";
 
 @Component({
   selector: "app-sentiment-table",
@@ -19,20 +19,22 @@ export class SentimentTableComponent implements OnInit {
   pos;
   neg;
   temp: any;
-  constructor(private testService: TestService) {}
+  constructor(private sentimentService: SentimentService) {}
 
   ngOnInit() {
-    this.changeDate(" 7days ");
+    this.getSentiment(" 7days ");
   }
-  changeDate(date) {
-    this.testService.getSentimentText(date).subscribe(res => {
+  getSentiment(date) {
+    this.sentimentService.getSentimentText(date).subscribe(res => {
       this.temp = res;
-        this.pos = this.temp["pos"];
-        this.neg = this.temp["neg"];
+        this.pos = this.findPosSentiment(this.temp);
+        this.neg = this.findNegSentiment(this.temp);
       console.log('pos',this.pos);
       
     });
   }
+  findPosSentiment(sentimentList){return sentimentList["pos"] }
+  findNegSentiment(sentimentList){ return sentimentList["neg"]}
   showAll(text){
     this.text=text;
     this.show=!this.show;

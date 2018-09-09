@@ -1,4 +1,5 @@
-import { TestService } from "./../test.service";
+import { MonitorService } from './../monitor.service';
+import { SaleService } from './../sale.service';
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { BaseChartDirective } from "ng2-charts/ng2-charts";
 
@@ -30,7 +31,7 @@ res1;
   tempLabel = [];
   chartLabels = [];
   res;
-  constructor(private testService: TestService) {}
+  constructor(private saleService: SaleService,private monitorService:MonitorService) {}
 
   ngOnInit() {
     this.drawGraph(" 3days ");
@@ -40,7 +41,7 @@ res1;
   drawGraph(value) {
     let tempData1 = [];
     let data1 = [];
-    this.testService.getPageReact(value).subscribe(res => {
+    this.monitorService.getPageReact(value).subscribe(res => {
       this.res = res;
       if (this.res.length > 0) {
         for (let a in this.res) {
@@ -62,7 +63,7 @@ res1;
     this.tempLabel = [];
     this.data = [];
     this.chartLabels = [];
-    this.testService.getTotalRevenue(value).subscribe(res => {
+    this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res = res;
       if (this.res.length > 0) {
         for (let a in this.res) {
@@ -83,7 +84,7 @@ res1;
   drawGraph2(value) {
     let tempData1 = [];
     let data1 = [];
-    this.testService.getPageReact(value).subscribe(res => {
+    this.monitorService.getPageReact(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
         for (let a in this.res1) {
@@ -106,7 +107,7 @@ res1;
     let tempLabel = [];
     let data1 = [];
     this.chartLabels1 = [];
-    this.testService.getTotalRevenue(value).subscribe(res => {
+    this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
         for (let a in this.res1) {
@@ -129,7 +130,7 @@ res1;
     let tempData1 = [];
     let data1 = [];
     let res1;
-    this.testService.getPageReact(value).subscribe(res => {
+    this.monitorService.getPageReact(value).subscribe(res => {
       res1 = res;
       if (this.res1.length > 0) {
         for (let a in res1) {
@@ -151,7 +152,7 @@ res1;
     let tempLabel = [];
     let data1 = [];
     this.chartLabels2 = [];
-    this.testService.getTotalRevenue(value).subscribe(res => {
+    this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
         for (let a in this.res1) {

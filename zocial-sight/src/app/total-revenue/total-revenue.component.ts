@@ -1,3 +1,4 @@
+import { SaleService } from './../sale.service';
 import { TestService } from './../test.service';
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
@@ -33,7 +34,7 @@ res;
   data = [];
   tempLabel = [];
   chartLabels = [];
-  constructor(private testService: TestService) { }
+  constructor(private saleService: SaleService) { }
 
   ngOnInit() {
     this.drawGraph(' 7days ');
@@ -45,7 +46,7 @@ res;
     this.tempLabel = [];
     this.data = [];
     this.chartLabels = [];
-    this.testService.getTotalRevenue(value)
+    this.saleService.getTotalRevenue(value)
       .subscribe(res => {
         this.res=res;
         if (this.res.length > 0) {

@@ -1,30 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Headers, Response } from "@angular/http";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
 import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { DatePipe } from "@angular/common";
-import "rxjs/add/operator/map";
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
-export class TestService {
-  public now: Date = new Date("2018-06-10");
-  private headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json"
-  });
-
-  private date: string;
+export class SentimentService {
   private toDate: Date;
-  constructor(private http: HttpClient, private datePipe: DatePipe) {}
+  public now: Date = new Date("2018-06-10");
 
-  getAdvantageData() {
-    let apiUrl = "./assets/a.json";
-    return this.http.get(apiUrl);
-  }
-  getAdvantageDataNeg() {
-    let apiUrl = "./assets/b.json";
-    return this.http.get(apiUrl);
-  }
+  constructor(private http: HttpClient, private datePipe: DatePipe) { }
   getOldDate(value) {
     console.log(this.now);
     if (value == " 1day ") {
@@ -45,56 +29,38 @@ export class TestService {
       // console.log(this.datePipe.transform(this.toDate,"yyyy-MM-dd"));
     }
   }
-  getFBData(date) {
+  getSentiment(date) {
     this.getOldDate(date);
     let URL =
-      "http://127.0.0.1:5000/post/" +
+      "http://127.0.0.1:5000/getSentiment/" +
       this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
       "/" +
       this.datePipe.transform(this.now, "yyyy-MM-dd");
     return this.http.get(URL);
   }
-  getTWData(date) {
-    //  console.log(date);
-    this.getOldDate(date);
-
-    let URL =
-      "http://127.0.0.1:5000/tweet/" +
-      this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
-      "/" +
-      this.datePipe.transform(this.now, "yyyy-MM-dd");
-    return this.http.get(URL);
-  }
-  getPantip(date) {
+  getSentimentText(date) {
     this.getOldDate(date);
     let URL =
-      "http://127.0.0.1:5000/pantip/" +
-      this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
-      "/" +
-      this.datePipe.transform(this.now, "yyyy-MM-dd");
-    return this.http.get(URL);
-  }
-  update() {
-    let URL = "http://127.0.0.1:5000/update";
-    return this.http.get(URL);
-  }
-  getGender(date) {
-    this.getOldDate(date);
-    let URL =
-      "http://127.0.0.1:5000/getGender/" +
-      this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
-      "/" +
-      this.datePipe.transform(this.now, "yyyy-MM-dd");
-    return this.http.get(URL);
-  }
-  getLocation(date) {
-    this.getOldDate(date);
-    let URL =
-      "http://127.0.0.1:5000/getLocation/" +
+      "http://127.0.0.1:5000/getSentimentText/" +
       this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
       "/" +
       this.datePipe.transform(this.now, "yyyy-MM-dd");
     return this.http.get(URL);
   }
 
+
+  getTopUser(){
+    let URL = "http://127.0.0.1:5000/topuser/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+  getInfluencer(){
+    let URL = "http://127.0.0.1:5000/influencer/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+  getTopWord(){
+    let URL = "http://127.0.0.1:5000/getWordCloud/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+
+ 
 }

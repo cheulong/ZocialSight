@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { TestService } from "./../test.service";
 import { BaseChartDirective } from "ng2-charts/ng2-charts";
+import { SentimentService } from "../sentiment.service";
 @Component({
   selector: "app-sentiment-total",
   templateUrl: "./sentiment-total.component.html",
@@ -42,25 +42,27 @@ export class SentimentTotalComponent implements OnInit {
   ];
   selected = "7days";
 
-  constructor(private testService: TestService) {}
+  constructor(private sentimentService: SentimentService) {}
 
   ngOnInit() {
-    this.changeDate(" 3days ");
+    this.getSentiment(" 3days ");
   }
-  changeDate(date) {
-    this.testService.getSentiment(date).subscribe(res => {
+  getSentiment(date) {
+    this.sentimentService.getSentiment(date).subscribe(res => {
       this.temp = res;
       if (this.temp["neg"] + this.temp["pos"] != 0) {
-      this.posNum=this.temp["pos"];
-      this.negNum=this.temp["neg"];
+      this.posNum=this.getPosSentiment(this.temp);
+      this.negNum=this.getNegSentiment(this.temp);
         this.pos = Math.round(
           (this.temp["pos"] / (this.temp["neg"] + this.temp["neg"])) * 100
         );
         this.neg = 100 - this.pos;
-        this.chartData[0].data[0] = this.temp["pos"];
-        this.chartData[0].data[1] = this.temp["neg"];
+        this.chartData[0].data[0] = this.getPosSentiment(this.temp);
+        this.chartData[0].data[1] = this.getNegSentiment(this.temp);
         this.chart.chart.update();
       }
     });
   }
+  getPosSentiment(sentimentList){return sentimentList['pos']}
+  getNegSentiment(sentimentList){return sentimentList['neg']}
 }
