@@ -15,9 +15,11 @@ export class UserListComponent implements OnInit {
   constructor(private router: Router, private test: TestService) {}
 
   ngOnInit() {
+    console.log('users');
+    
     this.test.getUsers().subscribe(res => {
       this.users=res;
-      console.log('hi',this.users);
+      console.log('users',this.users);
       
       this.seperate();
     });

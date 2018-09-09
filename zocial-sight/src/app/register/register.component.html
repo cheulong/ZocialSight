@@ -6,58 +6,63 @@
     <form novalidate #heroForm="ngForm" (ngSubmit)="onRegister()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input #fieldUsername="ngModel" type="text" class="form-control" id="username" placeholder="enter username"
-          [(ngModel)]="user.username" name="username" required [rangeLength]="[2, 50]">
-        <p *ngIf="fieldUsername.errors?.required&&fieldUsername.touched">The Username field is required</p>
-        <p *ngIf="fieldUsername.errors?.rangeLength">Length between 2 and 50</p>
+        <input #fieldUsername="ngModel" type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username"
+          required  [minlength]="2" [maxlength]="50">
+          <p *ngIf="fieldUsername.errors?.required&&fieldUsername.touched">The field cannot be empty Please input username again!</p>
+          <p *ngIf="fieldUsername.errors?.minlength">The minimum character of username is 2 characters, Please input username again!</p>
+          <p *ngIf="fieldUsername.errors?.maxlength">The maximum character of username is 50 characters, Please input username again!</p>
 
       </div>
       <div class="form-group">
         <label for="firstname">FirstName</label>
-        <input #fieldFirstname="ngModel" type="text" class="form-control" id="firstname" placeholder="enter firstname"
-          [(ngModel)]="user.firstname" name="firstname" required [rangeLength]="[2, 50]" pattern="[a-zA-Z\-\s]*">
-        <p *ngIf="fieldFirstname.errors?.required&&fieldFirstname.touched">The firstname field is required</p>
-        <p *ngIf="fieldFirstname.errors?.rangeLength">Length between 2 and 50</p>
-        <p *ngIf="fieldFirstname.errors?.pattern">Please use english only</p>
+        <input #fieldFirstname="ngModel"  type="text" class="form-control" id="firstname" placeholder="enter firstname" [(ngModel)]="user.firstname" name="firstname"
+          required [minlength]="2" [maxlength]="50" pattern="[a-zA-Z\-\s]*">
+          <p *ngIf="fieldFirstname.errors?.required&&fieldFirstname.touched">The field cannot be empty Please input name again!</p>
+          <p *ngIf="fieldFirstname.errors?.minlength">The minimum character of firstname is 2 characters, Please input firstname again!</p>
+          <p *ngIf="fieldFirstname.errors?.maxlength">The maximum character of firstname is 50 characters, Please input firstname again!</p>
+          <p *ngIf="fieldFirstname.errors?.pattern">The Input must be English alphabet. The -symbols and space is allowed Please input firstname again!</p>
 
       </div>
       <div class="form-group">
         <label for="surname">Surname</label>
-        <input #fieldSurname="ngModel" type="text" class="form-control" id="surname" placeholder="enter surname"
-          [(ngModel)]="user.surname" name="surname" required [rangeLength]="[2, 50]" pattern="[a-zA-Z\-\s]*">
-        <p *ngIf="fieldSurname.errors?.required&&fieldSurname.touched">The surname field is required</p>
-        <p *ngIf="fieldSurname.errors?.rangeLength">Length between 2 and 50</p>
-        <p *ngIf="fieldSurname.errors?.pattern">Please use english only</p>
+        <input  #fieldSurname="ngModel" type="text" class="form-control" id="surname" placeholder="enter surname" [(ngModel)]="user.surname" name="surname"
+          required [minlength]="2" [maxlength]="50" pattern="[a-zA-Z\-\s]*">
+          <p *ngIf="fieldSurname.errors?.required&&fieldSurname.touched">The field cannot be empty Please input surname again!</p>
+          <p *ngIf="fieldSurname.errors?.minlength">The minimum character of surname is 2 characters, Please input surname again!</p>
+          <p *ngIf="fieldSurname.errors?.maxlength">The maximum character of surname is 50 characters, Please input surname again!</p>
+          <p *ngIf="fieldSurname.errors?.pattern">The Input must be English alphabet. The only - symbols and space is allowed Please input surname again!</p>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input #fieldEmail="ngModel" type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email"
-          name="email" required email>
-        <p *ngIf="fieldEmail.errors?.required&&fieldEmail.touched">The email field is required</p>
-        <p *ngIf="fieldEmail.errors?.rangeLength">Length between 2 and 50</p>
-        <p *ngIf="fieldSurname.errors?.email">Email is invalid</p>
+        <input  #fieldEmail="ngModel" type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required email [minlength]="10" [maxlength]="50" >
+        <p *ngIf="fieldEmail.errors?.required&&fieldEmail.touched">The field cannot be empty Please input email address again</p>
+          <p *ngIf="fieldEmail.errors?.minlength">The minimum character of email address is 10 characters, Please input email address again!</p>
+          <p *ngIf="fieldEmail.errors?.maxlength">The maximum character of email address is 50 characters, Please input email address again!</p>
+          <p *ngIf="fieldEmail.errors?.email&&!fieldEmail.errors?.minlength">Input must be email format example hello@email.com Please input email address again!.</p>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input #fieldPassword="ngModel" type="password" class="form-control" id="password" placeholder="enter password"
-          [(ngModel)]="user.password" name="password" required [rangeLength]="[2, 50]">
-        <p *ngIf="fieldPassword.errors?.required&&fieldPassword.touched">The password field is required</p>
-        <p *ngIf="fieldPassword.errors?.rangeLength">Length between 2 and 50</p>
+        <input #fieldPassword="ngModel" type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password"
+          required [minlength]="2" [maxlength]="50" >
+          <p *ngIf="fieldPassword.errors?.required&&fieldPassword.touched">The field cannot be empty Please input password again!</p>
+          <p *ngIf="fieldPassword.errors?.minlength">The minimum character of password is 2 characters, Please input password again!</p>
+          <p *ngIf="fieldPassword.errors?.maxlength">The maximum character of password is 50 characters, Please input password again!</p>
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input #fieldPhone="ngModel" type="text" class="form-control" id="phone" placeholder="enter phone" [(ngModel)]="user.phone"
-          name="phone" required [rangeLength]="[10, 10]" pattern="[0-9]+">
-        <p *ngIf="fieldPhone.errors?.required&&fieldPhone.touched">The phone field is required</p>
-        <p *ngIf="fieldPhone.errors?.pattern">Please use only number</p>
-        <p *ngIf="fieldPhone.errors?.rangeLength&&!fieldPhone.errors?.pattern">Length must be 10</p>
+        <input #fieldPhone="ngModel"  type="text" class="form-control" id="phone" placeholder="enter phone" [(ngModel)]="user.phone" name="phone"
+          required [rangeLength]="[10, 10]" pattern="[0-9]+">
+          <p *ngIf="fieldPhone.errors?.required&&fieldPhone.touched">The field cannot be empty Please input phone number again!</p>
+          <p *ngIf="fieldPhone.errors?.pattern">The input must be numerical number(0-9). Please input phone number again!</p>
+          <p *ngIf="fieldPhone.errors?.rangeLength&&!fieldPhone.errors?.pattern">The field can be allow only 10 characters, please enter phone number  again!</p>
       </div>
       <div class="form-group">
         <label for="address">Address</label>
-        <input #fieldAddress="ngModel" type="text" class="form-control" id="address" placeholder="enter address"
-          [(ngModel)]="user.address" name="address" required [rangeLength]="[4, 100]">
-        <p *ngIf="fieldAddress.errors?.required&&fieldAddress.touched">The address field is required</p>
-        <p *ngIf="fieldAddress.errors?.rangeLength">Length between 4 and 100</p>
+        <input #fieldAddress="ngModel" type="text" class="form-control" id="address" placeholder="enter address" [(ngModel)]="user.address" name="address"
+          required [minlength]="2" [maxlength]="50" >
+          <p *ngIf="fieldAddress.errors?.required&&fieldAddress.touched">The field cannot be empty Please input address again!</p>
+          <p *ngIf="fieldAddress.errors?.minlength">The minimum character of address is 2 characters, Please input address again!</p>
+          <p *ngIf="fieldAddress.errors?.maxlength">The maximum character of address is 50 characters, Please input address again!</p>
       </div>
       <div class="form-group">
         <mat-form-field>
@@ -70,10 +75,11 @@
       </div>
       <div class="form-group">
         <label for="password">Answer</label>
-        <input #fieldAn="ngModel" type="text" class="form-control" id="newpassword" placeholder="enter answer"
-          [(ngModel)]="user.answer" name="answer" required [rangeLength]="[2, 50]">
-        <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The answer field is required</p>
-        <p *ngIf="fieldAn.errors?.rangeLength">Length between 2 and 50</p>
+        <input #fieldAn="ngModel" type="text" class="form-control" id="newpassword" placeholder="enter answer" [(ngModel)]="user.answer"
+          name="answer" required [minlength]="2" [maxlength]="50" >
+          <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The field cannot be empty Please input secret answer again!</p>
+          <p *ngIf="fieldAn.errors?.minlength">The minimum character of secret answer is 2 characters, Please input secret answer again!</p>
+          <p *ngIf="fieldAn.errors?.maxlength">The maximum character of password is 50 characters, Please input secret answer again!</p>
       </div>
       <div class="form-group">
         <mat-form-field>

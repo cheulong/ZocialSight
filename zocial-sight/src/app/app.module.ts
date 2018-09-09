@@ -37,6 +37,12 @@ import { InfluencerComponent } from './influencer/influencer.component';
 import { TopUserComponent } from './top-user/top-user.component';
 import { TopNegTrendComponent } from './top-neg-trend/top-neg-trend.component';
 import { WordCloudNegComponent } from './word-cloud-neg/word-cloud-neg.component';
+import { TotalRevenueComponent } from './total-revenue/total-revenue.component';
+import { TotalPageViewComponent } from './total-page-view/total-page-view.component';
+import { PageViewRevenueComponent } from './page-view-revenue/page-view-revenue.component';
+import {NgPipesModule} from 'ngx-pipes';
+import { WeekPieComponent } from './sentiment-total/week-pie/week-pie.component';
+import { MonthPieComponent } from './sentiment-total/month-pie/month-pie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,10 +67,16 @@ import { WordCloudNegComponent } from './word-cloud-neg/word-cloud-neg.component
     InfluencerComponent,
     TopUserComponent,
     TopNegTrendComponent,
-    WordCloudNegComponent
+    WordCloudNegComponent,
+    TotalRevenueComponent,
+    TotalPageViewComponent,
+    PageViewRevenueComponent,
+    WeekPieComponent,
+    MonthPieComponent
 
   ],
   imports: [
+    NgPipesModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

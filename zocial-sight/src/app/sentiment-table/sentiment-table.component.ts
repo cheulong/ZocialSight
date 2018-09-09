@@ -7,6 +7,8 @@ import { TestService } from "../test.service";
   styleUrls: ["./sentiment-table.component.scss"]
 })
 export class SentimentTableComponent implements OnInit {
+  show=false;
+  text='';
   foods = [
     { value: "1day", viewValue: "1day" },
     { value: "3days", viewValue: "3days" },
@@ -14,8 +16,8 @@ export class SentimentTableComponent implements OnInit {
     { value: "30days", viewValue: "30days" }
   ];
   selected = "7days";
-  pos = 0;
-  neg = 0;
+  pos;
+  neg;
   temp: any;
   constructor(private testService: TestService) {}
 
@@ -23,12 +25,16 @@ export class SentimentTableComponent implements OnInit {
     this.changeDate(" 7days ");
   }
   changeDate(date) {
-    this.testService.getSentiment(date).subscribe(res => {
+    this.testService.getSentimentText(date).subscribe(res => {
       this.temp = res;
-      if (this.temp["neg"] + this.temp["pos"] != 0) {
         this.pos = this.temp["pos"];
         this.neg = this.temp["neg"];
-      }
+      console.log('pos',this.pos);
+      
     });
+  }
+  showAll(text){
+    this.text=text;
+    this.show=!this.show;
   }
 }

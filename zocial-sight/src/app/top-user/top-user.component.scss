@@ -108,7 +108,9 @@ $pantip-color: #512880;
 mat-form-field {
   width: 100%;
 }
-
+.header{
+  width: 35%!important;
+}
 .h2-responsive {
   color: white;
   font-size: 110%;
@@ -117,7 +119,9 @@ mat-form-field {
 .blue-gradient{
   background:  #45cafc!important;
 }
-
+.normal-card {
+  height: 308px;
+}
 .post-num {
   width: 100%;
   height: 50px;

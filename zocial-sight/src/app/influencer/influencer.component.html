@@ -6,34 +6,54 @@
             <div class="view gradient-card-header blue-gradient header">
               <h2 class="h2-responsive mb-0">Influencer</h2>
             </div>
+   
             <div class="card-body pb-0">
+                <p style="
+                text-align:  right;
+                margin-right: 43px;
+                margin-top: -37px;
+                font-size: 14px;
+                color:  gray;
+                margin-bottom: 0;">Last
+              3 days</p>
               <div class="row card-body">
                 <table>
                     <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Post</th>
+                      <div class="content">
+                          <td> <h6>Facebook</h6>
+                            <div class="row">
+                                <p class="col-md-6">{{influencerFB.name}}</p>
+                                <p class="col-md-6"><img style="width: 20px" src="../../assets/fblike.png" alt="fblike"> {{influencerFB.engagement[0].Like}} <img style="width: 20px" src="../../assets/fblove.png" alt="fblike"> {{influencerFB.engagement[1].Love}} <img style="width: 20px" src="../../assets/fbhaha.png" alt="fblike"> {{influencerFB.engagement[3].Haha}} <img style="width: 20px" src="../../assets/fbwow.png" alt="fblike"> {{influencerFB.engagement[2].Wow}} <img style="width: 20px" src="../../assets/fbsad.png" alt="fblike"> {{influencerFB.engagement[4].Sad}} <img style="width: 20px" src="../../assets/fbangry.png" alt="fblike"> {{influencerFB.engagement[5].Angry}}</p>
+                            </div>
+                            </td>
+                      </div>
+                       
+                       
                       </tr>
                   <tr>
-                    <td>1</td>
-                    <td>ssfsfsfs</td>
-                    <td>2</td>
+                      <div class="content">
+                          <td> <h6>Twitter</h6>
+                            <div class="row">
+                                <p class="col-md-6">{{influencerTW.name}}</p>
+                                <p class="col-md-6"><img style="width: 20px" src="../../assets/twlike.png" alt="fblike"> {{influencerTW.engagement[0].Like}} <img style="width: 20px" src="../../assets/twretweet.png" alt="fblike"> {{influencerTW.engagement[1].Retweet}}</p>
+                            </div>
+                            </td>
+                      </div>
+                   
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td>ssfsfsfs</td>
-                    <td>2</td>
+                      <div class="content">
+                          <td> <h6>Pantip</h6>
+                            <div class="row">
+                                <p class="col-md-6">{{influencerPT.name}}</p>
+                                <p class="col-md-6"><img style="width: 14px" src="../../assets/ptfeeling.png" alt="fblike"> {{influencerPT.engagement[0].Feeling}} <img style="width: 14px" src="../../assets/ptgood.png" alt="fblike"> {{influencerPT.engagement[1].Good}}</p>
+                            </div>
+                            </td>
+                      </div>
+                   
                   </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>ssfsfsfs</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>ssfsfsfs</td>
-                  </tr>
-                  <td>7</td>
+              
+                
                 </table>
               </div>
             </div>

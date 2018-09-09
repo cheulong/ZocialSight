@@ -37,11 +37,11 @@ data=[];
     console.log('data1',this.wordData);
 
     let cls = this;
-    this.testService.getAdvantageData()
+    this.testService.getTopWord()
     .subscribe(res=>{
        this.rawData=res;
-       for(let a of this.rawData){
-         this.data.push({text:a.Name, size: a.score});
+       for(let a of this.rawData.neg){
+         this.data.push({text:a.text, size: a.number});
 
        }
        // this.data = this.data1.map(function(d) {
@@ -87,7 +87,7 @@ data=[];
     this.fillScale = D3.scaleOrdinal(D3.schemeCategory10);
     this.scale=D3.scaleLinear()
     .domain([D3.min(this.data,(d)=>d.size),D3.max(this.data,(d)=>d.size)])
-    .range([5, 20]);
+    .range([20, 40]);
     this.scaleWeight=D3.scaleQuantize()
     .domain([5,20])
     .range([100,300,500,700, 900]);
@@ -100,7 +100,7 @@ data=[];
                     .attr('height', this.height)
                     .style('position','absolute')
                     .style('top',5)
-                    .style('left',-20)
+                    .style('left',72)
                     .append('g')
                     .attr('width', this.width )
                     .attr('height', this.height)

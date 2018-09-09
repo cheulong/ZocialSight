@@ -1,0 +1,76 @@
+<section class="my-5">
+
+  <div class="card card-cascade narrower">
+
+    <section>
+
+      <div class="row">
+
+        <div class="col-md-12 mr-0">
+
+          <div class="view gradient-card-header blue-gradient header">
+
+            <h2 class="h2-responsive mb-0">Relation between Revenue and Total page reaction.</h2>
+          </div>
+
+          <div class="card-body pb-0">
+
+            
+
+
+
+              <!-- <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
+                  <div class="md-form">
+                    <label class="active">From</label>
+                    <mat-form-field>
+                      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <div class="md-form">
+                    <label class="active">To</label>
+                    <mat-form-field>
+                      <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                  </div> -->
+
+
+          
+        </div>
+      </div>
+      <!-- <div class="row"> -->
+          <div class=" col-md-8 ">
+              <div class="view gradient-card-header white">
+                  <p class="dateLabel">Last 3 days</p>
+
+                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+                  [legend]="true" (chartClick)="onChartClick($event)">
+                </canvas>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="view gradient-card-header white">
+                    <p class="dateLabel">Last week</p>
+
+                    <canvas baseChart [chartType]="'line'" [datasets]="chartData1" [labels]="chartLabels1" [options]="chartOptions"
+                      [legend]="true" (chartClick)="onChartClick($event)">
+                    </canvas>
+                  </div>
+                  <div class="view gradient-card-header white">
+                  <p class="dateLabel">Last month</p>
+
+                      <canvas baseChart [chartType]="'line'" [datasets]="chartData2" [labels]="chartLabels2" [options]="chartOptions"
+                        [legend]="true" (chartClick)="onChartClick($event)">
+                      </canvas>
+                    </div>
+                   
+            </div>
+      <!-- </div> -->
+     
+  </div>
+</section>
+</div>
+</section>

@@ -8,21 +8,15 @@
   
           <div class="col-xl-12 col-lg-12 mr-0">
   
-            <div class="view gradient-card-header blue-gradient">
+            <div class="view gradient-card-header blue-gradient header">
   
-              <h2 class="h2-responsive mb-0">Negative</h2>
+              <h2 class="h2-responsive mb-0">Top Negative Trend</h2>
             </div>
-  
+            <div class="wordDate">Last 3 days</div>
             <div class="card-body pb-0">
   
               <div class="row card-body ">
-                  <mat-form-field>
-                      <mat-select [(value)]="selected">
-                        <mat-option *ngFor="let food of foods" [value]="food.value" (click)="changeDate($event.target.textContent)">
-                          {{ food.viewValue }}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
+         
                 <word-cloud-neg [wordData]="data"></word-cloud-neg>
   
   

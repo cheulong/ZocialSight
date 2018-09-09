@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {APP_BASE_HREF} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {DatePipe} from '@angular/common';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 const appRoutes: Routes = [
   {path: 'users', component: UserListComponent}
 ];
@@ -19,7 +19,8 @@ describe('EditUserComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ EditUserComponent,UserListComponent,SearchPipe ],
       imports:[RouterModule.forRoot(appRoutes),FormsModule,HttpClientModule],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' },DatePipe]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' },DatePipe],
+      schemas: [ NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -27,7 +28,7 @@ describe('EditUserComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditUserComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {

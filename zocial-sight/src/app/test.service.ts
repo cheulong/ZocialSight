@@ -104,7 +104,7 @@ export class TestService {
   getSentimentText(date) {
     this.getOldDate(date);
     let URL =
-      "http://127.0.0.1:5000/getSentiment/" +
+      "http://127.0.0.1:5000/getSentimentText/" +
       this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
       "/" +
       this.datePipe.transform(this.now, "yyyy-MM-dd");
@@ -112,6 +112,11 @@ export class TestService {
   }
   getUsers() {
     let URL = "http://127.0.0.1:1111/users";
+    setTimeout(function(){
+      console.log('users');
+      
+     
+     }, 5000);
     return this.http.get(URL);
   }
   deleteUser(username) {
@@ -119,11 +124,43 @@ export class TestService {
     return this.http.post(URL, {'username':username}, { headers: this.headers }).toPromise();
   }
   getUser(username) {
-    let URL = "http://127.0.0.1:1111/user/"+username;
-    return this.http.get(URL);
+   
+     let URL = "http://127.0.0.1:1111/user/"+username;
+     return this.http.get(URL);
   }
   saveUser(user) {
     let URL = "http://127.0.0.1:1111/update";
     return this.http.put(URL, user, { headers: this.headers });
+  }
+  getTopUser(){
+    let URL = "http://127.0.0.1:5000/topuser/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+  getInfluencer(){
+    let URL = "http://127.0.0.1:5000/influencer/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+  getTopWord(){
+    let URL = "http://127.0.0.1:5000/getWordCloud/2018-06-08/2018-06-10";
+    return this.http.get(URL);
+  }
+  getTotalRevenue(date){
+    this.getOldDate(date);
+    let URL =
+      "http://127.0.0.1:5000/getRevenue/" +
+      this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
+      "/" +
+      this.datePipe.transform(this.now, "yyyy-MM-dd");
+    return this.http.get(URL);
+  }
+  getPageReact(date){
+    this.getOldDate(date);
+    let URL =
+      "http://127.0.0.1:5000/getPageReact/" +
+      this.datePipe.transform(this.toDate, "yyyy-MM-dd") +
+      "/" +
+      this.datePipe.transform(this.now, "yyyy-MM-dd");
+      
+    return this.http.get(URL);
   }
 }

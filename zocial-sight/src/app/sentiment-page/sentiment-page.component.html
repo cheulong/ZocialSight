@@ -7,8 +7,22 @@
 <!-- <div class="col-xl-4 col-lg-6">
   <app-top-neg-trend></app-top-neg-trend>
 </div>-->
-<div class="container mt-5">
+<div class="container mt-2">
   <div class="row">
+      <app-page-view-revenue style="width: 100%;"></app-page-view-revenue>
+
+  </div>
+  <div class="row">
+<div class="col-md-6">
+<app-total-page-view></app-total-page-view>
+
+</div>
+<div class="col-md-6">
+<app-total-revenue></app-total-revenue>
+
+</div>
+  </div>
+  <div class="row mt-5">
     <div class="col-md-8">
       <app-sentiment-table></app-sentiment-table>
     </div>
@@ -22,6 +36,14 @@
         </div>
         <div class="col-md-6">
             <app-top-user></app-top-user>
+          </div>
+  </div>
+  <div class="row mt-5 mb-5">
+      <div class="col-md-6">
+          <app-top-trend></app-top-trend>
+        </div>
+        <div class="col-md-6">
+            <app-top-neg-trend></app-top-neg-trend>
           </div>
   </div>
 </div>

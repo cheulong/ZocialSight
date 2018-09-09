@@ -1,0 +1,40 @@
+<section class="all">
+
+    <div class=" normal-card card card-cascade narrower" style="height: 304px;">
+  
+      <section>
+  
+        <div class="row">
+  
+          <div class="col-xl-12 col-lg-12 mr-0">
+  
+            <div class="view gradient-card-header blue-gradient header">
+  
+              <h2 class="h2-responsive mb-0">Total Page Reaction</h2>
+            </div>
+            <div class="card-body pb-0">
+                <p style="
+                text-align:  right;
+                margin-right: 43px;
+                margin-top: -37px;
+                font-size: 14px;
+                color:  gray;
+                margin-bottom: 0;">Last
+              7 days</p>
+              <div class="row card-body card-box">
+              
+                  <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+                  [legend]="true" (chartClick)="onChartClick($event)">
+                </canvas>
+  
+              </div>
+  
+            </div>
+          </div>
+  
+  
+        </div>
+      </section>
+    </div>
+  </section>
+  

@@ -100,11 +100,9 @@ th, td {
     width: 50%;
     margin: 10px;
 }
-th:nth-child(2),td:nth-child(2){
-    border-left: 1px solid #ddd;
-}
+
 th:nth-child(1),td:nth-child(1){
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 .chat{
   border-radius: 20px;

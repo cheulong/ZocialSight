@@ -30,9 +30,18 @@ logout(){
   }
 isLoggedIn(){
   let token=localStorage.getItem('token');
+  
   if(!token)
     return false;
   return true;
+}
+isAdmin(){
+  let token=localStorage.getItem('statue');
+  if(!token)
+  return false;
+else if( token!==" Admin ")
+  return true;
+else return false;
 }
 register(){
   this.router.navigateByUrl('/register');

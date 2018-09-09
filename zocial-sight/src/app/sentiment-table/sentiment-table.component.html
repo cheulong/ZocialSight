@@ -8,72 +8,43 @@
           </div>
           <div class="card-body pb-0 pt-0">
             <div class="row card-body">
-              <table>
+              <table class="col-md-6">
                 <tr>
                   <th id="pos-title">Position</th>
-                  <th id="neg-title">Negative</th>
+
                 </tr>
-                <tr>
-                  <td >
+                <tr *ngFor="let posSenti of pos">
+                  <td>
                     <div class="chat">
-                        <p class="title">Long</p>
-                        <span>5:45 PM - 25 Aug 2018</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                          when looking at its layout</p>
+                      <p class="title">{{posSenti.name}}</p>
+                      <span>{{posSenti.created_at.$date|date: "h:mm a - d MMM y"}}</span>
+                      <p>{{posSenti.text | shorten: 150: '...'}}</p>
+                      <div *ngIf="posSenti.text.length > 150" (click)="showAll(posSenti.text)"><a>Read More</a></div>
                     </div>
-                  
+
                   </td>
-                  <td >
-                      <div class="chat">
-                          <p class="title">Long</p>
-                          <span>5:45 PM - 25 Aug 2018</span>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                            when looking at its layout</p>
-                      </div>
-                    
-                    </td>
+
                 </tr>
+
+              </table>
+              <table class="col-md-6">
                 <tr>
-                    <td >
-                        <div class="chat">
-                            <p class="title">Long</p>
-                            <span>5:45 PM - 25 Aug 2018</span>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                              when looking at its layout</p>
-                        </div>
-                      
-                      </td>
-                      <td >
-                          <div class="chat">
-                              <p class="title">Long</p>
-                              <span>5:45 PM - 25 Aug 2018</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                when looking at its layout</p>
-                          </div>
-                        
-                        </td>
-                        
+                  <th id="pos-title">Negative</th>
+
                 </tr>
-                <tr>
-                    <td >
-                        <div class="chat">
-                            <p class="title">Long</p>
-                            <span>5:45 PM - 25 Aug 2018</span>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                              when looking at its layout</p>
-                        </div>
-                      
-                      </td>
-                      <td >
-                          <div class="chat">
-                              <p class="title">Long</p>
-                              <span>5:45 PM - 25 Aug 2018</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                when looking at its layout</p>
-                          </div>
-                        
-                        </td>
-                        
+
+                <tr *ngFor="let negSenti of neg">
+                  <td>
+                    <div class="chat">
+                      <p class="title">{{negSenti.name}}</p>
+                      <span>{{negSenti.created_at.$date|date: "h:mm a - d MMM y"}}</span>
+                      <p>{{negSenti.text | shorten: 120: '...'}}</p>
+                      <div *ngIf="negSenti.text.length > 120" (click)="showAll(negSenti.text)"><a>Read More</a></div>
+
+                    </div>
+
+                  </td>
+
                 </tr>
               </table>
             </div>
@@ -81,5 +52,30 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <div *ngIf="show" style="
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0.5;"></div>
+  <div *ngIf="show" style="  padding: 30px;
+z-index: 200;
+top: 20%;
+left: 20%;
+background: white;
+position: fixed;
+width: 800px;
+height: 400px;
+overflow-y: scroll;">
+
+    <p>{{text}}</p>
+    <button style="  
+    background: #00bdff;
+    border: 0; color:white" (click)="show=!show">Close</button>
   </div>
 </section>

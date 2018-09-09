@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from './../test.service';
 
 @Component({
   selector: 'app-top-user',
@@ -13,9 +14,16 @@ export class TopUserComponent implements OnInit {
     { value: "30days", viewValue: "30days" }
   ];
   selected = "7days";
-  constructor() { }
-
+  constructor(private testService:TestService) { }
+  topUsers;
   ngOnInit() {
+    this.testService.getTopUser()
+      .subscribe(res => {
+this.topUsers=res;
+
+
+      })
+
   }
 
 }
