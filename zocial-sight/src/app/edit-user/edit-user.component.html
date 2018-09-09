@@ -5,13 +5,15 @@
       <div class="form-group">
         <label for="username">Username</label>
         <input #fieldUsername="ngModel" type="text" class="form-control" id="username" placeholder="enter username"
-          [(ngModel)]="user.username" name="username" required [minlength]="2" [maxlength]="50">
+          [(ngModel)]="user.username" name="username" required [minlength]="2" [maxlength]="50" pattern="[a-zA-Z\0-9\-\s]*">
         <p *ngIf="fieldUsername.errors?.required&&fieldUsername.touched">The field cannot be empty Please input
           username again!</p>
         <p *ngIf="fieldUsername.errors?.minlength">The minimum character of username is 2 characters, Please input
           username again!</p>
         <p *ngIf="fieldUsername.errors?.maxlength">The maximum character of username is 50 characters, Please input
           username again!</p>
+        <p *ngIf="fieldUsername.errors?.pattern">The Input must be English alphabet. The -symbols and space is allowed
+          Please input username again!</p>
       </div>
       <div class="form-group">
         <label for="firstname">FirstName</label>
@@ -67,13 +69,15 @@
       <div class="form-group">
         <label for="address">Address</label>
         <input #fieldAddress="ngModel" type="text" class="form-control" id="address" placeholder="enter address"
-          [(ngModel)]="user.address" name="address" required [minlength]="2" [maxlength]="50">
+          [(ngModel)]="user.address" name="address" required [minlength]="2" [maxlength]="50" pattern="[a-zA-Z\0-9\-\s]*">
         <p *ngIf="fieldAddress.errors?.required&&fieldAddress.touched">The field cannot be empty Please input address
           again!</p>
         <p *ngIf="fieldAddress.errors?.minlength">The minimum character of address is 2 characters, Please input
           address again!</p>
         <p *ngIf="fieldAddress.errors?.maxlength">The maximum character of address is 50 characters, Please input
           address again!</p>
+        <p *ngIf="fieldAddress.errors?.pattern">The Input must be English alphabet. The -symbols and space is allowed
+          Please input firstname again!</p>
       </div>
       <div class="form-group">
         <mat-form-field>
@@ -87,13 +91,15 @@
       <div class="form-group">
         <label for="password">Answer</label>
         <input #fieldAn="ngModel" type="text" class="form-control" id="newpassword" placeholder="enter answer"
-          [(ngModel)]="user.answer" name="answer" required [minlength]="2" [maxlength]="50">
+          [(ngModel)]="user.answer" name="answer" required [minlength]="2" [maxlength]="50" pattern="[a-zA-Z\0-9\-\s]*">
         <p *ngIf="fieldAn.errors?.required&&fieldAn.touched">The field cannot be empty Please input secret answer
           again!</p>
         <p *ngIf="fieldAn.errors?.minlength">The minimum character of secret answer is 2 characters, Please input
           secret answer again!</p>
         <p *ngIf="fieldAn.errors?.maxlength">The maximum character of password is 50 characters, Please input secret
           answer again!</p>
+        <p *ngIf="fieldAn.errors?.pattern">The Input must be English alphabet. The -symbols and space is allowed
+          Please input answer again!</p>
       </div>
       <div class="form-group">
         <mat-form-field>
