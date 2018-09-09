@@ -1,0 +1,16 @@
+<div class=" row pt-3">
+    <div class="col-md-6">
+      <div class="view gradient-card-header white" style="height: 130px;width: 140px;margin-left: 30px;">
+        <canvas style="width: 150px; height: 168px;    position: absolute;
+        left: -20px;
+        top: -30px;" baseChart [chartType]="'pie'" [datasets]="chartData"
+          [labels]="chartLabels" [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="col-md-6 text-center post-num">
+      <p class="date">Last week</p>
+      <div>Positive<span> {{posNum}} </span>({{pos}}%)</div>
+      <div>Negative<span> {{negNum}} </span>({{neg}}%)</div>
+    </div>
+  </div>

@@ -1,0 +1,82 @@
+<section>
+    <div class="normal-card card card-cascade narrower">
+      <section>
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 mr-0">
+            <div class="view gradient-card-header blue-gradient header">
+              <h2 class="h2-responsive mb-0">Sentiment of Comment</h2>
+            </div>
+            <div class="card-body pb-0 pt-0">
+              <div class="row card-body">
+                <table class="col-md-6">
+                  <tr>
+                    <th id="pos-title">Position</th>
+  
+                  </tr>
+                  <tr *ngFor="let posSenti of pos">
+                    <td>
+                      <div class="chat">
+                        <p class="title">{{posSenti.name}}</p>
+                        <span>{{posSenti.created_at.$date|date: "h:mm a - d MMM y"}}</span>
+                        <p>{{posSenti.text | shorten: 150: '...'}}</p>
+                        <div *ngIf="posSenti.text.length > 150" (click)="showAll(posSenti.text)"><a>Read More</a></div>
+                      </div>
+  
+                    </td>
+  
+                  </tr>
+  
+                </table>
+                <table class="col-md-6">
+                  <tr>
+                    <th id="pos-title">Negative</th>
+  
+                  </tr>
+  
+                  <tr *ngFor="let negSenti of neg">
+                    <td>
+                      <div class="chat">
+                        <p class="title">{{negSenti.name}}</p>
+                        <span>{{negSenti.created_at.$date|date: "h:mm a - d MMM y"}}</span>
+                        <p>{{negSenti.text | shorten: 120: '...'}}</p>
+                        <div *ngIf="negSenti.text.length > 120" (click)="showAll(negSenti.text)"><a>Read More</a></div>
+  
+                      </div>
+  
+                    </td>
+  
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  
+    <div *ngIf="show" style="
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: black;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;"></div>
+    <div *ngIf="show" style="  padding: 30px;
+  z-index: 200;
+  top: 20%;
+  left: 20%;
+  background: white;
+  position: fixed;
+  width: 800px;
+  height: 400px;
+  overflow-y: scroll;">
+  
+      <p>{{text}}</p>
+      <button style="  
+      background: #00bdff;
+      border: 0; color:white" (click)="show=!show">Close</button>
+    </div>
+  </section>
+  

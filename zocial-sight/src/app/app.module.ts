@@ -43,6 +43,14 @@ import { PageViewRevenueComponent } from './page-view-revenue/page-view-revenue.
 import {NgPipesModule} from 'ngx-pipes';
 import { WeekPieComponent } from './sentiment-total/week-pie/week-pie.component';
 import { MonthPieComponent } from './sentiment-total/month-pie/month-pie.component';
+import { TopOppoNegTrendComponent } from './top-oppo-neg-trend/top-oppo-neg-trend.component';
+import { TopOppoPosTrendComponent } from './top-oppo-pos-trend/top-oppo-pos-trend.component';
+import { OppoSentimentTotalComponent } from './oppo-sentiment-total/oppo-sentiment-total.component';
+import { OppoSentimentTableComponent } from './oppo-sentiment-table/oppo-sentiment-table.component';
+import { OppoWeekPieComponent } from './oppo-sentiment-total/oppo-week-pie/oppo-week-pie.component';
+import { OppoMonthPieComponent } from './oppo-sentiment-total/oppo-month-pie/oppo-month-pie.component';
+import { OppoWordCloudComponent } from './oppo-word-cloud/oppo-word-cloud.component';
+import { OppoWordCloudNegComponent } from './oppo-word-cloud-neg/oppo-word-cloud-neg.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +80,15 @@ import { MonthPieComponent } from './sentiment-total/month-pie/month-pie.compone
     TotalPageViewComponent,
     PageViewRevenueComponent,
     WeekPieComponent,
-    MonthPieComponent
+    MonthPieComponent,
+    TopOppoNegTrendComponent,
+    TopOppoPosTrendComponent,
+    OppoSentimentTotalComponent,
+    OppoSentimentTableComponent,
+    OppoWeekPieComponent,
+    OppoMonthPieComponent,
+    OppoWordCloudComponent,
+    OppoWordCloudNegComponent
 
   ],
   imports: [

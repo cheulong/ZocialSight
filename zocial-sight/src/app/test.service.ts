@@ -21,6 +21,10 @@ export class TestService {
     let apiUrl = "./assets/a.json";
     return this.http.get(apiUrl);
   }
+  getAdvantageDataNeg() {
+    let apiUrl = "./assets/b.json";
+    return this.http.get(apiUrl);
+  }
   getOldDate(value) {
     console.log(this.now);
     if (value == " 1day ") {

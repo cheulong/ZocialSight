@@ -9,18 +9,18 @@
 </div>-->
 <div class="container mt-2">
   <div class="row">
-      <app-page-view-revenue style="width: 100%;"></app-page-view-revenue>
+    <app-page-view-revenue style="width: 100%;"></app-page-view-revenue>
 
   </div>
   <div class="row">
-<div class="col-md-6">
-<app-total-page-view></app-total-page-view>
+    <div class="col-md-6">
+      <app-total-page-view></app-total-page-view>
 
-</div>
-<div class="col-md-6">
-<app-total-revenue></app-total-revenue>
+    </div>
+    <div class="col-md-6">
+      <app-total-revenue></app-total-revenue>
 
-</div>
+    </div>
   </div>
   <div class="row mt-5">
     <div class="col-md-8">
@@ -31,24 +31,43 @@
     </div>
   </div>
   <div class="row mt-5">
-      <div class="col-md-6">
-          <app-influencer></app-influencer>
-        </div>
-        <div class="col-md-6">
-            <app-top-user></app-top-user>
-          </div>
+    <div class="col-md-6">
+      <app-influencer></app-influencer>
+    </div>
+    <div class="col-md-6">
+      <app-top-user></app-top-user>
+    </div>
   </div>
   <div class="row mt-5 mb-5">
-      <div class="col-md-6">
-          <app-top-trend></app-top-trend>
-        </div>
-        <div class="col-md-6">
-            <app-top-neg-trend></app-top-neg-trend>
-          </div>
+    <div class="col-md-6">
+      <app-top-trend></app-top-trend>
+    </div>
+    <div class="col-md-6">
+      <app-top-neg-trend></app-top-neg-trend>
+    </div>
   </div>
 </div>
-
-
+<hr>
+<h1 style="    font-size: 2rem;
+margin-left: 105px;">Monitor result of Competition company</h1>
+<div class="container mt-2">
+    <div class="row mt-5">
+        <div class="col-md-8">
+          <app-oppo-sentiment-table></app-oppo-sentiment-table>
+        </div>
+        <div class="col-md-4">
+          <app-oppo-sentiment-total></app-oppo-sentiment-total>
+        </div>
+      </div>
+      <div class="row mt-5 mb-5">
+          <div class="col-md-6">
+            <app-top-oppo-pos-trend></app-top-oppo-pos-trend>
+          </div>
+          <div class="col-md-6">
+            <app-top-oppo-neg-trend></app-top-oppo-neg-trend>
+          </div>
+        </div>
+</div>
 <!-- <div class="col-xl-4 col-lg-6">
   <app-influencer></app-influencer>
 </div>
