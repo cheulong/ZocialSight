@@ -32,7 +32,6 @@ export class WordCloudComponent implements OnInit {
   constructor(private sentimentService: SentimentService) {}
 
   ngOnInit() {
-    console.log("data", this.wordData);
 
     let cls = this;
     this.getTopPosWord();
@@ -123,7 +122,6 @@ export class WordCloudComponent implements OnInit {
   }
 
   private drawWordCloud(words) {
-    console.log(words);
     this.svg
       .selectAll("text")
       .data(words)

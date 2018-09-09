@@ -50,7 +50,6 @@ public now: Date = new Date();
     let now: Date = new Date();
         this.testService.getFBData(value)
         .subscribe(res=>{
-          console.log(res);
           this.likeNum=0;
           this.commentNum=0;
           this.shareNum=0;
@@ -65,7 +64,6 @@ public now: Date = new Date();
   changeTwDate(value){
     this.testService.getTWData(value)
     .subscribe(res=>{
-      console.log(res);
       this.favoriteNum=0;
       this.retweetNum=0;
       for(let a in res){
@@ -78,7 +76,6 @@ public now: Date = new Date();
   changePantipDate(value){
     this.testService.getPantip(value)
     .subscribe(res=>{
-      console.log(res);
       this.pantipNum=Object.keys(res).length;
      })
   }

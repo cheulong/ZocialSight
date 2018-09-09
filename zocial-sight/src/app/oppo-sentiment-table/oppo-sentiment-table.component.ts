@@ -68,7 +68,6 @@ export class OppoSentimentTableComponent implements OnInit {
     //   this.temp = res;
     //   this.pos = this.temp["pos"];
     //   this.neg = this.temp["neg"];
-    //   console.log("pos", this.pos);
     // });
   }
   showAll(text) {

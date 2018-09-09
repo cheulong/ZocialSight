@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     }
     ngOnInit(){}
     onLogin(): void {
-console.log(this.user);
 
       this.auth.login(this.user)
 

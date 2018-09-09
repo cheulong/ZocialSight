@@ -15,12 +15,10 @@ export class NavComponent implements OnInit {
   }
 refresh(){
   this.loading=true;
-  console.log(this.loading);
   this.testService.update()
     .subscribe(res=>{
       this.result=res;
       this.loading=false;
-      console.log(this.loading);
     })
   }
 logout(){

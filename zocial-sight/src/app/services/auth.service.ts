@@ -14,7 +14,6 @@ export class AuthService {
     return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
   register(user: User): Promise<any> {
-    console.log(user)
    let url: string = `${this.BASE_URL}/registration`;
    return this.http.post(url, user, {headers: this.headers}).toPromise();
  }

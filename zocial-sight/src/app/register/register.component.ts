@@ -25,7 +25,6 @@ export class RegisterComponent {
   }
   addUser(){
     let result =this.onRegister(this.user);
-    console.log('remove',result);
     
   }
   onRegister(user1) {
@@ -48,12 +47,10 @@ export class RegisterComponent {
     return user;
   }
   getGender(e) {
-    console.log(e);
 
     this.user.question = e;
   }
   getRole(e) {
-    console.log(e);
 
     this.user.statue = e;
   }

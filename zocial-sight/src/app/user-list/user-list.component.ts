@@ -71,7 +71,6 @@ export class UserListComponent implements OnInit {
         owners.push(user);
       }
     });
-    console.log("owner", owners);
 
     return owners;
   }

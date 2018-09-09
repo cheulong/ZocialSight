@@ -90,7 +90,6 @@ res1;
         for (let a in this.res1) {
           tempData1.push(res[a].total_reaction);
           data1 = tempData1;
-          console.log("revenue1", this.chartData1);
         }
       } else {
         this.data = [];
@@ -122,7 +121,6 @@ res1;
       }
       this.chartLabels1.reverse();
       this.chartData1.push({ data: data1.reverse(), label: "Revenue" });
-      console.log("revenue1", this.chartData1);
     });
   }
 

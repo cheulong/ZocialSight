@@ -51,12 +51,10 @@ export class EditUserComponent implements OnInit {
 
   }
   getGender(e) {
-    console.log(e);
 
     this.user.question = e;
   }
   getRole(e) {
-    console.log(e);
 
     this.user.statue = e;
   }

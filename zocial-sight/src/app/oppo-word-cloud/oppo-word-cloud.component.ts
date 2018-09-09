@@ -33,7 +33,6 @@ data=[];
   }
 
   ngOnInit() {
-    console.log('data',this.wordData);
 
     let cls = this;
     this.testService.getAdvantageData()
@@ -125,7 +124,6 @@ data=[];
   }
 
   private drawWordCloud(words) {
-console.log(words);
      this.svg
          .selectAll('text')
          .data(words)

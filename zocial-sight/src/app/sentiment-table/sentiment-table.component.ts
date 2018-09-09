@@ -29,7 +29,6 @@ export class SentimentTableComponent implements OnInit {
       this.temp = res;
         this.pos = this.findPosSentiment(this.temp);
         this.neg = this.findNegSentiment(this.temp);
-      console.log('pos',this.pos);
       
     });
   }

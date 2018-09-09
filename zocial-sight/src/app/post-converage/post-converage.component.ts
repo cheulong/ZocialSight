@@ -86,6 +86,5 @@ changeDate(date){
 }
 
   onChartClick(event) {
-      console.log(event);
     }
 }

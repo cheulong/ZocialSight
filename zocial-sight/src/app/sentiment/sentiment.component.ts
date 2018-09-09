@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import {TestService} from "./../test.service";
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+import { SentimentService } from '../sentiment.service';
 
 
 @Component({
@@ -42,7 +42,7 @@ chartLabels = ['Positive','Negative'];
       { value: '30days', viewValue: '30days' }
     ];
        selected = '7days';
-  constructor(private testService:TestService) { }
+  constructor(private sentimentService:SentimentService) { }
 
 
   ngOnInit() {
@@ -50,7 +50,7 @@ chartLabels = ['Positive','Negative'];
 
   }
 changeDate(date){
-   this.testService.getSentiment(date)
+   this.sentimentService.getSentiment(date)
   .subscribe(res=>{
   this.temp=res;
         if(this.temp['neg']+this.temp['pos']!=0){
