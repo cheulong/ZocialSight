@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {DatePipe} from '@angular/common';
 
 import { PageViewRevenueComponent } from './page-view-revenue.component';
+import { ChartsModule } from 'ng2-charts';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('PageViewRevenueComponent', () => {
   let component: PageViewRevenueComponent;
@@ -8,7 +11,9 @@ describe('PageViewRevenueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageViewRevenueComponent ]
+      declarations: [ PageViewRevenueComponent ],
+      imports:[ChartsModule,HttpClientModule],
+      providers: [DatePipe]
     })
     .compileComponents();
   }));

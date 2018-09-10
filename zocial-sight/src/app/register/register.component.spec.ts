@@ -33,4 +33,8 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should register new user', () => {
+    expect(component).toBeTruthy();
+  });
+
 });

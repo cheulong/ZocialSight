@@ -22,11 +22,12 @@
                 margin-bottom: 0;">Last
               7 days</p>
               <div class="row card-body card-box">
+            <div style="display: block" *ngIf="chartData.length > 0">
               
                   <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
                   [legend]="true" (chartClick)="onChartClick($event)">
                 </canvas>
-  
+  </div>
               </div>
   
             </div>

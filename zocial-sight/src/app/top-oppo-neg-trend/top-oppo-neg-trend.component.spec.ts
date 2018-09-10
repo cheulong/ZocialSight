@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopOppoNegTrendComponent } from './top-oppo-neg-trend.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TopOppoNegTrendComponent', () => {
   let component: TopOppoNegTrendComponent;
@@ -8,7 +9,9 @@ describe('TopOppoNegTrendComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopOppoNegTrendComponent ]
+      declarations: [ TopOppoNegTrendComponent ],
+      schemas: [ NO_ERRORS_SCHEMA]
+
     })
     .compileComponents();
   }));

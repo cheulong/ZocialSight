@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { TestService } from "./../../test.service";
-import { BaseChartDirective } from "ng2-charts/ng2-charts";
+// import { BaseChartDirective } from "ng2-charts/ng2-charts";
 @Component({
   selector: 'app-oppo-month-pie',
   templateUrl: './oppo-month-pie.component.html',
   styleUrls: ['./oppo-month-pie.component.scss']
 })
 export class OppoMonthPieComponent implements OnInit {
-  @ViewChild(BaseChartDirective)
-  chart: BaseChartDirective;
+  // @ViewChild(BaseChartDirective)
+  // chart: BaseChartDirective;
 
   chartOptions = {
     responsive: false,
@@ -52,7 +52,7 @@ negNum=0;
         this.neg = 100 - this.pos;
         this.chartData[0].data[0] = this.temp["pos"];
         this.chartData[0].data[1] = this.temp["neg"];
-        this.chart.chart.update();
+        // this.chart.chart.update();
       }
 
   }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopNegTrendComponent } from './top-neg-trend.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TopNegTrendComponent', () => {
   let component: TopNegTrendComponent;
@@ -8,7 +9,9 @@ describe('TopNegTrendComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopNegTrendComponent ]
+      declarations: [ TopNegTrendComponent ],
+      schemas: [ NO_ERRORS_SCHEMA]
+
     })
     .compileComponents();
   }));

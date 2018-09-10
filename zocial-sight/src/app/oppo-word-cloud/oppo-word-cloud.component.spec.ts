@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OppoWordCloudComponent } from './oppo-word-cloud.component';
+import {HttpClientModule} from '@angular/common/http';
+import {DatePipe} from '@angular/common';
 
 describe('OppoWordCloudComponent', () => {
   let component: OppoWordCloudComponent;
@@ -8,7 +10,10 @@ describe('OppoWordCloudComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OppoWordCloudComponent ]
+      declarations: [ OppoWordCloudComponent ],
+      imports:[HttpClientModule],
+      providers: [DatePipe]
+
     })
     .compileComponents();
   }));

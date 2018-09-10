@@ -1,4 +1,4 @@
-import { SentimentService } from './../sentiment.service';
+import { SentimentService } from "./../sentiment.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -15,15 +15,61 @@ export class InfluencerComponent implements OnInit {
   ];
   selected = "7days";
   influencer;
-  influencerFB;
-  influencerTW;
-  influencerPT;
+
+  influencerFB = {
+    name: "",
+    engagement: [
+      {
+        Like: 0
+      },
+      {
+        Love: 0
+      },
+      {
+        Wow: 0
+      },
+      {
+        Haha: 0
+      },
+      {
+        Sad: 0
+      },
+      {
+        Angry: 0
+      },
+      {
+        Share: 0
+      }
+    ]
+  };
+  influencerTW = {
+    name: "",
+    engagement: [
+      {
+        Like: 0
+      },
+      {
+        Retweet: 0
+      }
+    ]
+  };
+  influencerPT = {
+    name: "",
+    engagement: [
+      {
+        Feeling: 0
+      },
+      {
+        Good: 0
+      }
+    ]
+  };
   constructor(private sentimentService: SentimentService) {}
 
   ngOnInit() {
-   this.getInfluencer();
+    this.getInfluencer();
   }
-  getInfluencer(){
+  getInfluencer() {
     this.sentimentService.getInfluencer().subscribe(res => {
       this.influencer = res;
       if (this.influencer.influencerFB)
@@ -32,7 +78,6 @@ export class InfluencerComponent implements OnInit {
         this.influencerTW = this.influencer.influencerTW;
       if (this.influencer.influencerPT)
         this.influencerPT = this.influencer.influencerPT;
-        
     });
   }
 }

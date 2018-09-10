@@ -15,11 +15,11 @@
 
           <div class="card-body pb-0">
 
-            
 
 
 
-              <!-- <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
+
+            <!-- <p class="lead mt-5"><span class="badge info-color p-3">Custom date</span></p><br>
                   <div class="md-form">
                     <label class="active">From</label>
                     <mat-form-field>
@@ -38,39 +38,44 @@
                   </div> -->
 
 
-          
+
+          </div>
         </div>
+        <!-- <div class="row"> -->
+        <div class=" col-md-8 ">
+          <div class="view gradient-card-header white">
+            <p class="dateLabel">Last 3 days</p>
+            <div style="display: block" *ngIf="chartData.length > 0">
+              <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+                [legend]="true" (chartClick)="onChartClick($event)">
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="view gradient-card-header white">
+            <p class="dateLabel">Last week</p>
+            <div style="display: block" *ngIf="chartData1.length > 0">
+
+              <canvas baseChart [chartType]="'line'" [datasets]="chartData1" [labels]="chartLabels1" [options]="chartOptions"
+                [legend]="true" (chartClick)="onChartClick($event)">
+              </canvas>
+            </div>
+          </div>
+          <div class="view gradient-card-header white">
+            <p class="dateLabel">Last month</p>
+            <div style="display: block" *ngIf="chartData2.length > 0">
+
+              <canvas baseChart [chartType]="'line'" [datasets]="chartData2" [labels]="chartLabels2" [options]="chartOptions"
+                [legend]="true" (chartClick)="onChartClick($event)">
+              </canvas>
+            </div>
+          </div>
+
+        </div>
+        <!-- </div> -->
+
       </div>
-      <!-- <div class="row"> -->
-          <div class=" col-md-8 ">
-              <div class="view gradient-card-header white">
-                  <p class="dateLabel">Last 3 days</p>
-
-                <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
-                  [legend]="true" (chartClick)="onChartClick($event)">
-                </canvas>
-              </div>
-            </div>
-            <div class="col-md-4">
-                <div class="view gradient-card-header white">
-                    <p class="dateLabel">Last week</p>
-
-                    <canvas baseChart [chartType]="'line'" [datasets]="chartData1" [labels]="chartLabels1" [options]="chartOptions"
-                      [legend]="true" (chartClick)="onChartClick($event)">
-                    </canvas>
-                  </div>
-                  <div class="view gradient-card-header white">
-                  <p class="dateLabel">Last month</p>
-
-                      <canvas baseChart [chartType]="'line'" [datasets]="chartData2" [labels]="chartLabels2" [options]="chartOptions"
-                        [legend]="true" (chartClick)="onChartClick($event)">
-                      </canvas>
-                    </div>
-                   
-            </div>
-      <!-- </div> -->
-     
+    </section>
   </div>
-</section>
-</div>
 </section>

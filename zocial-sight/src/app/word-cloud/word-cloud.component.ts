@@ -11,6 +11,7 @@ declare let d3: any;
 export class WordCloudComponent implements OnInit {
   @Input()
   wordData;
+
   data1 = ["Data", "Chea"];
   data = [];
   private rawData: any;

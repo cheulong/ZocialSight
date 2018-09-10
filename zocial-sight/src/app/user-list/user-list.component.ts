@@ -13,7 +13,7 @@ import { AuthService } from "../services/auth.service";
 export class UserListComponent implements OnInit {
   users;
   owners;
-  staffs;
+  staffs=[];
   constructor(private router: Router, private userService: UserService,private authService:AuthService) {}
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
     } else {
       console.log("Cancel");
     }
-    return removedUser;
+    return this.users;
   }
   edit(item) {
     this.router.navigate(["/user", item.username]);

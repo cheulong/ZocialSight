@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TestService } from "./../test.service";
-import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+// import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 @Component({
   selector: 'app-analysis-result',
   templateUrl: './analysis-result.component.html',
   styleUrls: ['./analysis-result.component.scss']
 })
 export class AnalysisResultComponent implements OnInit {
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+  // @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   foods = [
     { value: '1day', viewValue: '1day' },
@@ -59,7 +59,7 @@ export class AnalysisResultComponent implements OnInit {
         }
         this.chartLabels.reverse();
         this.chartData.push({ data: this.data.reverse(), label: 'Facebook' });
-        this.chart.chart.update();
+        // this.chart.chart.update();
       });
   }
 }

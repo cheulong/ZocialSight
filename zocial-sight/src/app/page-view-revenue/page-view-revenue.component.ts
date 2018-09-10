@@ -1,7 +1,7 @@
 import { MonitorService } from './../monitor.service';
 import { SaleService } from './../sale.service';
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { BaseChartDirective } from "ng2-charts/ng2-charts";
+// import { BaseChartDirective } from "ng2-charts/ng2-charts";
 
 @Component({
   selector: "app-page-view-revenue",
@@ -9,8 +9,8 @@ import { BaseChartDirective } from "ng2-charts/ng2-charts";
   styleUrls: ["./page-view-revenue.component.scss"]
 })
 export class PageViewRevenueComponent implements OnInit {
-  @ViewChild(BaseChartDirective)
-  chart: BaseChartDirective;
+  // @ViewChild(BaseChartDirective)
+  // chart: BaseChartDirective;
 
   chartOptions = {
     responsive: true
@@ -53,7 +53,7 @@ res1;
         this.chartLabels = [];
       }
       this.chartData.push({ data: data1.reverse(), label: "Page Reaction" });
-      this.chart.chart.update();
+      // this.chart.chart.update();
     });
     this.drawGraph1(value);
   }
@@ -96,7 +96,7 @@ res1;
         this.chartLabels = [];
       }
       this.chartData1.push({ data: data1.reverse(), label: "Page Reaction" });
-      this.chart.chart.update();
+      // this.chart.chart.update();
     });
     this.drawGraph3(value);
   }
@@ -140,7 +140,7 @@ res1;
         this.chartLabels = [];
       }
       this.chartData2.push({ data: data1.reverse(), label: "Page Reaction" });
-      this.chart.chart.update();
+      // this.chart.chart.update();
     });
     this.drawGraph5(value);
   }
