@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TestService} from "./../test.service";
+import {TestService} from './../test.service';
 @Component({
   selector: 'app-gender',
   templateUrl: './gender.component.html',
@@ -13,22 +13,24 @@ export class GenderComponent implements OnInit {
     { value: '30days', viewValue: '30days' }
   ];
      selected = '7days';
-     male=0;
-     female=0;
-     temp:any;
-  constructor(private testService:TestService) { }
+     male = 0;
+     female = 0;
+     temp: any;
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
-    this.getGender(' 7days ')
+    this.getGender(' 7days ');
   }
-  getGender(date){
+  getGender(date) {
       this.testService.getGender(date)
-      .subscribe(res=>{
-        this.temp=res;
-        if(this.temp['female']+this.temp['male']!=0){
-        this.male=(this.temp['male']/(this.temp['female']+this.temp['male']))*100;
-        this.female=100-this.male;
+      .subscribe(res => {
+        console.log('res', res);
+
+        this.temp = res;
+        if (this.temp['female'] + this.temp['male'] !== 0) {
+        this.male = Math.floor((this.temp['male'] / (this.temp['female'] + this.temp['male'])) * 100);
+        this.female = 100 - this.male;
         }
-       })
+       });
   }
 }

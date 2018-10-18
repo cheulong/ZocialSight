@@ -64,7 +64,6 @@ res;
         }
         this.chartLabels.reverse();
         this.chartData.push({ data: this.data.reverse(), label: 'Facebook' });
-        this.chart.chart.update();
       });
   }
 }

@@ -1,12 +1,12 @@
 import { MonitorService } from './../monitor.service';
 import { SaleService } from './../sale.service';
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from '@angular/core';
 // import { BaseChartDirective } from "ng2-charts/ng2-charts";
 
 @Component({
-  selector: "app-page-view-revenue",
-  templateUrl: "./page-view-revenue.component.html",
-  styleUrls: ["./page-view-revenue.component.scss"]
+  selector: 'app-page-view-revenue',
+  templateUrl: './page-view-revenue.component.html',
+  styleUrls: ['./page-view-revenue.component.scss']
 })
 export class PageViewRevenueComponent implements OnInit {
   // @ViewChild(BaseChartDirective)
@@ -17,7 +17,7 @@ export class PageViewRevenueComponent implements OnInit {
   };
 
   chartData = [
-    //{ data: [0, 0, 0, 0,2,2], label: 'Facebook' }
+    // { data: [0, 0, 0, 0,2,2], label: 'Facebook' }
     // { data: [120, 455, 100, 340], label: 'Account B' },
     // { data: [45, 67, 800, 500], label: 'Account C' }
   ];
@@ -25,26 +25,26 @@ export class PageViewRevenueComponent implements OnInit {
   chartLabels1 = [];
   chartData2 = [];
   chartLabels2 = [];
-res1;
+  res1;
   tempData = [];
   data = [];
   tempLabel = [];
   chartLabels = [];
   res;
-  constructor(private saleService: SaleService,private monitorService:MonitorService) {}
+  constructor(private saleService: SaleService, private monitorService: MonitorService) {}
 
   ngOnInit() {
-    this.drawGraph(" 3days ");
+    this.drawGraph(' 3days ');
     this.drawGraph2(' 7days ');
     this.drawGraph4(' 30days ');
   }
   drawGraph(value) {
-    let tempData1 = [];
+    const tempData1 = [];
     let data1 = [];
     this.monitorService.getPageReact(value).subscribe(res => {
       this.res = res;
       if (this.res.length > 0) {
-        for (let a in this.res) {
+        for (const a in this.res) {
           tempData1.push(res[a].total_reaction);
           data1 = tempData1;
         }
@@ -52,7 +52,7 @@ res1;
         this.data = [];
         this.chartLabels = [];
       }
-      this.chartData.push({ data: data1.reverse(), label: "Page Reaction" });
+      this.chartData.push({ data: data1.reverse(), label: 'Page Reaction' });
       // this.chart.chart.update();
     });
     this.drawGraph1(value);
@@ -66,7 +66,7 @@ res1;
     this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res = res;
       if (this.res.length > 0) {
-        for (let a in this.res) {
+        for (const a in this.res) {
           this.tempLabel.push(res[a].created_time.slice(5, 10));
           this.tempData.push(res[a].total_revenue);
           this.data = this.tempData;
@@ -77,17 +77,17 @@ res1;
         this.chartLabels = [];
       }
       this.chartLabels.reverse();
-      this.chartData.push({ data: this.data.reverse(), label: "Revenue" });
+      this.chartData.push({ data: this.data.reverse(), label: 'Revenue' });
     });
   }
 
   drawGraph2(value) {
-    let tempData1 = [];
+    const tempData1 = [];
     let data1 = [];
     this.monitorService.getPageReact(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
-        for (let a in this.res1) {
+        for (const a in this.res1) {
           tempData1.push(res[a].total_reaction);
           data1 = tempData1;
         }
@@ -95,21 +95,21 @@ res1;
         this.data = [];
         this.chartLabels = [];
       }
-      this.chartData1.push({ data: data1.reverse(), label: "Page Reaction" });
+      this.chartData1.push({ data: data1.reverse(), label: 'Page Reaction' });
       // this.chart.chart.update();
     });
     this.drawGraph3(value);
   }
   drawGraph3(value) {
     this.chartData1 = [];
-    let tempData = [];
-    let tempLabel = [];
+    const tempData = [];
+    const tempLabel = [];
     let data1 = [];
     this.chartLabels1 = [];
     this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
-        for (let a in this.res1) {
+        for (const a in this.res1) {
           tempLabel.push(res[a].created_time.slice(5, 10));
           tempData.push(res[a].total_revenue);
           data1 = tempData;
@@ -120,18 +120,18 @@ res1;
         this.chartLabels1 = [];
       }
       this.chartLabels1.reverse();
-      this.chartData1.push({ data: data1.reverse(), label: "Revenue" });
+      this.chartData1.push({ data: data1.reverse(), label: 'Revenue' });
     });
   }
 
   drawGraph4(value) {
-    let tempData1 = [];
+    const tempData1 = [];
     let data1 = [];
     let res1;
     this.monitorService.getPageReact(value).subscribe(res => {
       res1 = res;
       if (this.res1.length > 0) {
-        for (let a in res1) {
+        for (const a in res1) {
           tempData1.push(res[a].total_reaction);
           data1 = tempData1;
         }
@@ -139,21 +139,21 @@ res1;
         this.data = [];
         this.chartLabels = [];
       }
-      this.chartData2.push({ data: data1.reverse(), label: "Page Reaction" });
+      this.chartData2.push({ data: data1.reverse(), label: 'Page Reaction' });
       // this.chart.chart.update();
     });
     this.drawGraph5(value);
   }
   drawGraph5(value) {
     this.chartData1 = [];
-    let tempData = [];
-    let tempLabel = [];
+    const tempData = [];
+    const tempLabel = [];
     let data1 = [];
     this.chartLabels2 = [];
     this.saleService.getTotalRevenue(value).subscribe(res => {
       this.res1 = res;
       if (this.res1.length > 0) {
-        for (let a in this.res1) {
+        for (const a in this.res1) {
           tempLabel.push(res[a].created_time.slice(5, 10));
           tempData.push(res[a].total_revenue);
           data1 = tempData;
@@ -164,7 +164,7 @@ res1;
         this.chartLabels2 = [];
       }
       this.chartLabels2.reverse();
-      this.chartData2.push({ data: data1.reverse(), label: "Revenue" });
+      this.chartData2.push({ data: data1.reverse(), label: 'Revenue' });
     });
   }
 }

@@ -51,6 +51,11 @@ import { OppoWeekPieComponent } from './oppo-sentiment-total/oppo-week-pie/oppo-
 import { OppoMonthPieComponent } from './oppo-sentiment-total/oppo-month-pie/oppo-month-pie.component';
 import { OppoWordCloudComponent } from './oppo-word-cloud/oppo-word-cloud.component';
 import { OppoWordCloudNegComponent } from './oppo-word-cloud-neg/oppo-word-cloud-neg.component';
+import { SalePageComponent } from './sale-page/sale-page.component';
+import { CustomerAgeNameProductComponent } from './customer-age-name-product/customer-age-name-product.component';
+import { EffectiveProductComponent } from './effective-product/effective-product.component';
+import { PredictProductComponent } from './predict-product/predict-product.component';
+import { GenerateReportComponent } from './generate-report/generate-report.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +93,12 @@ import { OppoWordCloudNegComponent } from './oppo-word-cloud-neg/oppo-word-cloud
     OppoWeekPieComponent,
     OppoMonthPieComponent,
     OppoWordCloudComponent,
-    OppoWordCloudNegComponent
+    OppoWordCloudNegComponent,
+    SalePageComponent,
+    CustomerAgeNameProductComponent,
+    EffectiveProductComponent,
+    PredictProductComponent,
+    GenerateReportComponent
 
   ],
   imports: [

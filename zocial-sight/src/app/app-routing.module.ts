@@ -1,3 +1,4 @@
+import { SalePageComponent } from './sale-page/sale-page.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'user/:username', component: EditUserComponent },
   { path: 'sentiment', component: SentimentPageComponent },
+  { path: 'sale', component: SalePageComponent },
 
 
 ];

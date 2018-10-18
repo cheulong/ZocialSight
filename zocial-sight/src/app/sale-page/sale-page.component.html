@@ -1,0 +1,21 @@
+<div class="container mt-2">
+  <div style="width: 198px;">
+    <label style="display: flex;justify-content: flex-end;" for="files"   class="btn btn-primary">Access excel file</label>
+    <input type="file" (change)="onFileChange($event)" multiple="false" id="files" style="visibility:hidden;" />
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-customer-age-name-product></app-customer-age-name-product>
+    </div>
+    <div class="col-md-12">
+      <app-predict-product></app-predict-product>
+    </div>
+    <div class="col-md-8">
+      <app-effective-product></app-effective-product>
+    </div>
+    <div class="col-md-4">
+      <app-generate-report></app-generate-report>
+    </div>
+  </div>
+</div>
+

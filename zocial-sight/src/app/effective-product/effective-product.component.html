@@ -1,0 +1,34 @@
+<section>
+  <div class="normal-card card card-cascade narrower">
+    <section>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 mr-0">
+          <div class="view gradient-card-header blue-gradient header">
+            <h2 class="h2-responsive mb-0">Sales Effective</h2>
+          </div>
+          <div class="card-body pb-0">
+  
+
+            <div class="row card-body">
+              <table>
+                <tr>
+                  <th>#</th>
+                  <th>Coke</th>
+                  <th>Fanta</th>
+                  <th>Sprite</th>
+                </tr>
+                <tr *ngFor="let topuser of topUsers1 ;let i = index">
+                  <td>{{topuser.date}}</td>
+                  <td>{{topuser.cokePrice}}</td>
+                  <td>{{topuser.fantaPrice}}</td>
+                  <td>{{topuser.spritePrice}}</td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
